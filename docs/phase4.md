@@ -159,7 +159,7 @@ Now install an official Microsoft generic key for your edition:
    slmgr.vbs /ipk VK7JG-NPHTM-C97JM-9MPGT-3V66T
    ```
 
-2. **Press Enter**editions. **Microsoft uses two separate mechanism
+2. **Press Enter**
 3. A dialog box will say **"The product key was successfully installed."** or **"Installed a product key."**
 4. Click **OK**
 

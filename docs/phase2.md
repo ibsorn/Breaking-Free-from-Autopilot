@@ -53,10 +53,12 @@ This phase shows how to **prepare installation media and optionally force Home e
 
 If you don't already have a Windows 11 USB:
 
-1. Go to [Microsoft's Windows 11 download page](https://www.microsoft.com/software-download/windows11)
-2. Use the **"Create installation media"** tool
-3. Follow the wizard to download Windows 11 onto a USB drive (minimum 8 GB)
-4. Plug the USB into the locked corporate device
+<ol class="steps-list">
+  <li>Go to <a href="https://www.microsoft.com/software-download/windows11">Microsoft's Windows 11 download page</a></li>
+  <li>Use the <strong>"Create installation media"</strong> tool</li>
+  <li>Follow the wizard to download Windows 11 onto a USB drive (minimum 8 GB)</li>
+  <li>Plug the USB into the locked corporate device</li>
+</ol>
 
 If you already have a Windows 11 USB, proceed to Step 2.
 
@@ -65,26 +67,34 @@ If you already have a Windows 11 USB, proceed to Step 2.
 
 ### Step 2: Open the USB and Navigate to the `sources` Folder
 
-1. **Safely eject any USB drives** from your computer
-2. **Plug in the Windows 11 USB** you just created
-3. **Open File Explorer** and find the USB drive (usually `D:` or `E:`, labeled as something like "WININSTALL")
-4. Look for the folder called `sources` – go inside it
+<ol class="steps-list">
+  <li><strong>Safely eject any USB drives</strong> from your computer</li>
+  <li><strong>Plug in the Windows 11 USB</strong> you just created</li>
+  <li><strong>Open File Explorer</strong> and find the USB drive (usually <code>D:</code> or <code>E:</code>, labeled as something like "WININSTALL")</li>
+  <li>Look for the folder called <code>sources</code> – go inside it</li>
+</ol>
 
 !!! note "Cannot Find sources Folder?"
-    If you don't see a `sources` fol (Home Edition Only)
+    If you don't see a `sources` folder, try changing the view to show all file types, or the USB may not have been created correctly.
+
+---
+
+## Step 3: Create the `ei.cfg` File (Home Edition Only)
 
 **Skip this section if you're using Pro edition. Proceed to Phase 3.**
 
-If you're installing Home edition, t## Step 3: Create the `ei.cfg` File
+If you're installing Home edition, this step is required.
 
 This special file tells the Windows installer: "Install Home edition, not Pro."
 
 **Option A: Manual Creation**
 
-1. **Right-click in an empty area** of the `sources` folder
-2. Choose **New > Text Document**
-3. A file called `New Text Document.txt` will appear – open it
-4. **Delete everything** and copy-paste **exactly** these lines:
+<ol class="steps-list">
+  <li><strong>Right-click in an empty area</strong> of the <code>sources</code> folder</li>
+  <li>Choose <strong>New > Text Document</strong></li>
+  <li>A file called <code>New Text Document.txt</code> will appear – open it</li>
+  <li><strong>Delete everything</strong> and copy-paste <strong>exactly</strong> these lines:</li>
+</ol>
 
 ```
 [EditionID]
@@ -108,43 +118,52 @@ If you prefer not to create the file manually, you can download a ready-made `ei
 [📥 Download ei.cfg](assets/downloads/ei.cfg){: .md-button }
 
 Simply:
-1. Download the file ab
-
-!!! note "Pro Edition Users"
-    If you're installing Pro edition, you don't need this file. You can delete any `ei.cfg` file that might already be on the USB, and proceed directly to Phase 3.ove
+1. Download the file above
 2. Copy it to the `sources` folder on your USB
 3. Skip to Step 4 below
+
+!!! note "Pro Edition Users"
+    If you're installing Pro edition, you don't need this file. You can delete any `ei.cfg` file that might already be on the USB, and proceed directly to Phase 3.
 
 ### Step 4: Save or Move the File as `ei.cfg`
 
 If you created it manually (Option A):
 
-1. Press **Ctrl + S** or go to **File > Save As**
-2. At the bottom, change the file type from **"Text Documents (*.txt)"** to **"All Files (.)"**
-3. Change the filename from `New Text Document.txt` to **`ei.cfg`** (no `.txt` extension)
-4. Click **Save**
+<ol class="steps-list">
+  <li>Press <strong>Ctrl + S</strong> or go to <strong>File > Save As</strong></li>
+  <li>At the bottom, change the file type from <strong>"Text Documents (*.txt)"</strong> to <strong>"All Files (.*)"</strong></li>
+  <li>Change the filename from <code>New Text Document.txt</code> to <strong><code>ei.cfg</code></strong> (no <code>.txt</code> extension)</li>
+  <li>Click <strong>Save</strong></li>
+</ol>
 
 If you downloaded it (Option B):
 
-1. Move the downloaded `ei.cfg` file into the `sources` folder on your USB
-2. That's it – it's already in the correct format
+<ol class="steps-list">
+  <li>Move the downloaded <code>ei.cfg</code> file into the <code>sources</code> folder on your USB</li>
+  <li>That's it – it's already in the correct format</li>
+</ol>
 
 !!! success "File in Place"
     You should now see a file called `ei.cfg` in the `sources` folder. If you see `ei.cfg.txt`, you saved it wrong – delete it and try again, making sure the file type is set to "All Files (.)".
 
 ### Step 5: Verify the File
 
-1. Right-click on `ei.cfg` and select **Properties**
-2. Confirm:
-   - Filename is exactly: `ei.cfg`
-   - Type is: "Configuration Settings" or just "File"
-   - NOT a text file with a `.txt` extension
-
-3. Close Properties
-4. **Safely eject the USB** (right-click in File Explorer > Eject)
+<ol class="steps-list">
+  <li>Right-click on <code>ei.cfg</code> and select <strong>Properties</strong></li>
+  <li>Confirm:
+    <ul>
+      <li>Filename is exactly: <code>ei.cfg</code></li>
+      <li>Type is: "Configuration Settings" or just "File"</li>
+      <li>NOT a text file with a <code>.txt</code> extension</li>
+    </ul>
+  </li>
+  <li>Close Properties</li>
+  <li><strong>Safely eject the USB</strong> (right-click in File Explorer > Eject)</li>
+</ol>
 
 !!! tip "Keep This USB Safe"
     This USB is now customized for your device. Keep it somewhere safe – you'll use it in Phase 3 to install Windows.
+
 **If you created an `ei.cfg` file (Home edition path):**
 - The Windows installer will detect the `ei.cfg` file
 - It will automatically select Home edition (instead of asking which version to install)

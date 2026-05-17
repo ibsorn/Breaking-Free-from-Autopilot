@@ -199,7 +199,7 @@ After completing the setup:
 
 ## Congratulations: You've Reached Phase 9!
 
-You've successfully completed all 8 defensive phases. Your device is now protected by:
+You've successfully completed all 9 phases. Your device is now protected by:
 - **Phases 1-2:** BIOS and installation enforcements
 - **Phases 3-4:** Clean OS installation and license locking
 - **Phases 5-6:** Service and DNS-level blocking

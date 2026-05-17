@@ -25,13 +25,18 @@ In this phase, we'll:
 
 ### Step 1: Enter BIOS/UEFI
 
-1. **Power on the device** and immediately start pressing the BIOS entry key repeatedly.
-2. The key varies by manufacturer:
-   - **Dell:** F2 or F12
-   - **HP:** F10 or Esc, then F10
-   - **Lenovo:** F2 or Fn + F2
-   - **ASUS:** Del or F2
-   - **Generic/Other:** F2, F10, F12, Del, or Esc
+<ol class="steps-list">
+  <li><strong>Power on the device</strong> and immediately start pressing the BIOS entry key repeatedly.</li>
+  <li>The key varies by manufacturer:
+    <ul>
+      <li><strong>Dell:</strong> F2 or F12</li>
+      <li><strong>HP:</strong> F10 or Esc, then F10</li>
+      <li><strong>Lenovo:</strong> F2 or Fn + F2</li>
+      <li><strong>ASUS:</strong> Del or F2</li>
+      <li><strong>Generic/Other:</strong> F2, F10, F12, Del, or Esc</li>
+    </ul>
+  </li>
+</ol>
 
 !!! tip "Timing Matters"
     You must press the key *immediately* after power-on, during the manufacturer logo. If you miss it, restart and try again. Don't wait for Windows to load.
@@ -40,16 +45,20 @@ In this phase, we'll:
 
 This is where the corporate control data lives. Here's what to do:
 
-1. **Navigate to the Security tab** (look for tabs like Security, System Security, or Integrated Peripherals)
-2. **Find the TPM option.** It might be called:
-   - "TPM Security Chip"
-   - "TPM Device"
-   - "Trusted Platform Module"
-   - "Intel PTT" (Intel devices)
-   - "AMD fTPM" (AMD devices)
-
-3. **Select "Clear TPM"** or **"Reset TPM"** or **"Clear Security Chip"**
-4. **Confirm the action** – this will delete all stored certificates and keys
+<ol class="steps-list">
+  <li><strong>Navigate to the Security tab</strong> (look for tabs like Security, System Security, or Integrated Peripherals)</li>
+  <li><strong>Find the TPM option.</strong> It might be called:
+    <ul>
+      <li>"TPM Security Chip"</li>
+      <li>"TPM Device"</li>
+      <li>"Trusted Platform Module"</li>
+      <li>"Intel PTT" (Intel devices)</li>
+      <li>"AMD fTPM" (AMD devices)</li>
+    </ul>
+  </li>
+  <li><strong>Select "Clear TPM"</strong> or <strong>"Reset TPM"</strong> or <strong>"Clear Security Chip"</strong></li>
+  <li><strong>Confirm the action</strong> – this will delete all stored certificates and keys</li>
+</ol>
 
 !!! note "What This Does"
     The TPM chip can store corporate certificates that persist even after a Windows format. Clearing it ensures those certificates are permanently gone and cannot be recovered.
@@ -58,25 +67,34 @@ This is where the corporate control data lives. Here's what to do:
 
 Some corporate devices have an agent called **Computrace** (also branded as "LoJack for Laptops" or "Absolute Persistent Agent"). This is remote access software that locks devices even without Autopilot.
 
-1. **Look for options related to:**
-   - "Computrace"
-   - "Absolute Persistence"
-   - "Lojack"
-   - "Embedded Security"
-
-2. **If found, change the setting to:**
-   - "Permanently Disable"
-   - "Permanently Deactivated"
-   - Or set to "Disabled" (not just "Disabled – can be enabled by software")
+<ol class="steps-list">
+  <li><strong>Look for options related to:</strong>
+    <ul>
+      <li>"Computrace"</li>
+      <li>"Absolute Persistence"</li>
+      <li>"Lojack"</li>
+      <li>"Embedded Security"</li>
+    </ul>
+  </li>
+  <li><strong>If found, change the setting to:</strong>
+    <ul>
+      <li>"Permanently Disable"</li>
+      <li>"Permanently Deactivated"</li>
+      <li>Or set to "Disabled" (not just "Disabled – can be enabled by software")</li>
+    </ul>
+  </li>
+</ol>
 
 !!! warning "Computrace is Rare but Dangerous"
     If your device has Computrace and you don't disable it here, you won't be able to disable it later in Windows. It runs at a level below the OS. That's why we do it now.
 
 ### Step 4: Save and Exit
 
-1. Press **F10** (or the save/exit key for your BIOS) to save changes
-2. Confirm "Yes" when asked to save
-3. The device will restart
+<ol class="steps-list">
+  <li>Press <strong>F10</strong> (or the save/exit key for your BIOS) to save changes</li>
+  <li>Confirm "Yes" when asked to save</li>
+  <li>The device will restart</li>
+</ol>
 
 !!! success "Phase 1 Complete"
     You've successfully erased the hardware-level locks. The device is now "blank" at the BIOS level, though Windows still thinks it's enrolled in Autopilot. We'll fix that in Phase 3.

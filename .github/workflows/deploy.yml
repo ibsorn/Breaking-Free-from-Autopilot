@@ -5,20 +5,20 @@
 # Remember to have a requirements.txt file with the required dependencies.
 # This template ships with one by default.
 #
-# It is also recommendet to also copy the template with all branches, to
+# It is also recommended to also copy the template with all branches, to
 # have the gh-pages branch pre-made. This prevents possible errors.
 #
 name: Deploy Site
 
 on:
   push:
-    paths: 
+    paths:
     - 'docs/**'
     - 'mkdocs.yml'
     - 'theme/**'
     - 'overrides/**'
     branches:
-    - master
+    - main
     #
     # If your repository would have releases should you uncomment the below lines
     # in order to ignore pushes caused by newly created releases.
@@ -26,13 +26,16 @@ on:
     #tags-ignore:
     #- '**'
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v4
     - name: Set up Python 3.x
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@v5
       with:
         python-version: 3.x
     - name: Install dependencies

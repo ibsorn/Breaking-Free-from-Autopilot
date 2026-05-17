@@ -1,7 +1,7 @@
 site_name: Breaking Free from Autopilot
 site_url: https://ibsorn.github.io/Breaking-Free-from-Autopilot/
 site_description: Complete guide to bypass Autopilot, MDM, Azure enrollment, and Device Management on Windows. Step-by-step instructions to remove corporate locks from Windows 11.
-site_author: "Your Organization"
+site_author: "ibsorn"
 repo_name: ibsorn/breaking-free-from-autopilot
 repo_url: https://github.com/ibsorn/breaking-free-from-autopilot
 
@@ -24,8 +24,11 @@ theme:
   custom_dir: overrides
   palette:
     scheme: 'slate'
-    primary: 'indigo'
-    accent: 'indigo'
+    primary: 'custom'
+    accent: 'cyan'
+  font:
+    text: 'Inter'
+    code: 'JetBrains Mono'
   features:
     - search.suggest
     - search.highlight
@@ -34,18 +37,29 @@ theme:
     - navigation.instant
     - navigation.sections
     - content.code.copy
-    - toc.integrate
 
 plugins:
   - search:
       lang:
         - en
 
+extra_css:
+  - assets/css/extra.css
+  - assets/css/progress-nav.css
+  - assets/css/theme-light.css
+
+extra_javascript:
+  - assets/js/theme-toggle.js
+  - assets/js/progress-tracker.js
+  - assets/js/code-enhancer.js
+
 markdown_extensions:
   - markdown.extensions.admonition
   - markdown.extensions.attr_list
-  - markdown.extensions.codehilite:
-      guess_lang: false
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true
+  - pymdownx.inlinehilite
   - markdown.extensions.toc:
       permalink: true
   - pymdownx.details

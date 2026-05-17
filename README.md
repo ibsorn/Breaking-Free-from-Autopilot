@@ -68,7 +68,7 @@ Visit `http://localhost:8000` to preview.
 ```
 docs/
   ├── index.md           # Start here
-  ├── phase1.md–phase7.md
+  ├── phase1.md–phase9.md
   └── assets/downloads/  # Scripts & config files
 mkdocs.yml
 overrides/              # Custom HTML templates (SEO, OpenGraph)

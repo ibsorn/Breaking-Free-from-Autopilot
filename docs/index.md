@@ -47,17 +47,106 @@ The process is divided into **nine phases**, each building on the previous one. 
 
 ### Quick Overview
 
-| Phase | What Happens | Time | Required |
-|-------|--------------|------|----------|
-| **1** | [Deep Hardware Cleanup](phase1.md) – Clear BIOS tracking | 5–10 min | ✅ Yes |
-| **2** | [Edition Selection](phase2.md) – Choose Windows 11 edition (Home recommended) | 5 min | ✅ Yes |
-| **3** | [Clean Installation](phase3.md) – Fresh Windows install offline | 20–30 min | ✅ Yes |
-| **4** | [Key Purging](phase4.md) – Remove corporate licenses, lock edition | 5 min | ✅ Yes |
-| **5** | [Telemetry & MDM Kill](phase5.md) – Disable tracking services | 5 min | ✅ Yes |
-| **6** | [Hosts File Block](phase6.md) – Block Microsoft domains | 5 min | ✅ Yes |
-| **7** | [Firewall Blocking](phase7.md) – Block MDM processes at firewall | 5 min | ✅ Yes |
-| **8** | [Hosts Watchdog](phase8.md) – Auto-restore hosts file | 5 min | ⭕ Optional |
-| **9** | [Final Connection to Internet](phase9.md) – Safe account setup after all defenses active | 5–10 min | ✅ Yes |
+<div class="phase-grid">
+  <a href="phase1/" class="phase-card">
+    <div class="phase-card__number">1</div>
+    <div class="phase-card__title">Deep Hardware Cleanup</div>
+    <div class="phase-card__description">Clear BIOS tracking, TPM reset, disable Computrace/Lojack</div>
+    <div class="phase-card__meta">
+      <span class="phase-card__time">5–10 min</span>
+      <span class="phase-card__badge">Required</span>
+    </div>
+    <span class="phase-card__arrow">→</span>
+  </a>
+
+  <a href="phase2/" class="phase-card">
+    <div class="phase-card__number">2</div>
+    <div class="phase-card__title">Edition Selection</div>
+    <div class="phase-card__description">Choose Windows 11 edition (Home recommended) using ei.cfg</div>
+    <div class="phase-card__meta">
+      <span class="phase-card__time">5 min</span>
+      <span class="phase-card__badge">Required</span>
+    </div>
+    <span class="phase-card__arrow">→</span>
+  </a>
+
+  <a href="phase3/" class="phase-card">
+    <div class="phase-card__number">3</div>
+    <div class="phase-card__title">Clean Installation</div>
+    <div class="phase-card__description">Fresh Windows install completely offline, no network</div>
+    <div class="phase-card__meta">
+      <span class="phase-card__time">20–30 min</span>
+      <span class="phase-card__badge">Required</span>
+    </div>
+    <span class="phase-card__arrow">→</span>
+  </a>
+
+  <a href="phase4/" class="phase-card">
+    <div class="phase-card__number">4</div>
+    <div class="phase-card__title">Key Purging</div>
+    <div class="phase-card__description">Remove corporate licenses, lock edition with rearm</div>
+    <div class="phase-card__meta">
+      <span class="phase-card__time">5 min</span>
+      <span class="phase-card__badge">Required</span>
+    </div>
+    <span class="phase-card__arrow">→</span>
+  </a>
+
+  <a href="phase5/" class="phase-card">
+    <div class="phase-card__number">5</div>
+    <div class="phase-card__title">Telemetry & MDM Kill</div>
+    <div class="phase-card__description">Disable DiagTrack, dmwappushservice, and Azure AD join</div>
+    <div class="phase-card__meta">
+      <span class="phase-card__time">5 min</span>
+      <span class="phase-card__badge">Required</span>
+    </div>
+    <span class="phase-card__arrow">→</span>
+  </a>
+
+  <a href="phase6/" class="phase-card">
+    <div class="phase-card__number">6</div>
+    <div class="phase-card__title">Hosts File Block</div>
+    <div class="phase-card__description">Block Microsoft domains at system level via hosts file</div>
+    <div class="phase-card__meta">
+      <span class="phase-card__time">5 min</span>
+      <span class="phase-card__badge">Required</span>
+    </div>
+    <span class="phase-card__arrow">→</span>
+  </a>
+
+  <a href="phase7/" class="phase-card">
+    <div class="phase-card__number">7</div>
+    <div class="phase-card__title">Firewall Blocking</div>
+    <div class="phase-card__description">Block MDM processes at firewall level with specific rules</div>
+    <div class="phase-card__meta">
+      <span class="phase-card__time">5 min</span>
+      <span class="phase-card__badge">Required</span>
+    </div>
+    <span class="phase-card__arrow">→</span>
+  </a>
+
+  <a href="phase8/" class="phase-card">
+    <div class="phase-card__number">8</div>
+    <div class="phase-card__title">Hosts Watchdog</div>
+    <div class="phase-card__description">Auto-restore hosts file if modified by Windows updates</div>
+    <div class="phase-card__meta">
+      <span class="phase-card__time">5 min</span>
+      <span class="phase-card__badge phase-card__badge--optional">Optional</span>
+    </div>
+    <span class="phase-card__arrow">→</span>
+  </a>
+
+  <a href="phase9/" class="phase-card">
+    <div class="phase-card__number">9</div>
+    <div class="phase-card__title">Final Connection</div>
+    <div class="phase-card__description">Safe internet connection after all defenses are active</div>
+    <div class="phase-card__meta">
+      <span class="phase-card__time">5–10 min</span>
+      <span class="phase-card__badge">Required</span>
+    </div>
+    <span class="phase-card__arrow">→</span>
+  </a>
+</div>
 
 **Total time: ~1–2 hours** (including 30 min for Windows installation)
 

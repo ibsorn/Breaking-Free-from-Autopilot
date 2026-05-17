@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
-{% block site_meta %}
+{% block extrahead %}
   {{ super() }}
   <!-- Enhanced SEO Meta Tags -->
-  <meta name="theme-color" content="#303f9f">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   
@@ -16,7 +17,12 @@
   <meta name="twitter:site" content="@ibsorn">
   
   <!-- Canonical URL for duplicate content prevention -->
-  <link rel="canonical" href="{{ config.site_url }}">
+  <link rel="canonical" href="{{ page.canonical_url }}">
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- JSON-LD Structured Data for Knowledge Graphs -->
   <script type="application/ld+json">
@@ -27,7 +33,6 @@
     "description": "Comprehensive technical guide to bypass Microsoft Autopilot, MDM, and Azure enrollment on Windows 11 devices",
     "image": "{{ config.site_url }}/assets/images/og-image.jpg",
     "datePublished": "2026-03-01",
-    "dateModified": "2026-03-08",
     "author": {
       "@type": "Organization",
       "name": "ibsorn"
@@ -43,7 +48,7 @@
     "mainEntity": {
       "@type": "HowTo",
       "name": "How to Bypass Autopilot and MDM on Windows",
-      "description": "Complete 7-phase process to remove Autopilot, MDM, and Azure enrollment locks from Windows devices",
+      "description": "Complete 9-phase process to remove Autopilot, MDM, and Azure enrollment locks from Windows devices",
       "step": [
         {
           "@type": "HowToStep",
@@ -77,8 +82,18 @@
         },
         {
           "@type": "HowToStep",
-          "name": "Phase 7: Final Setup",
+          "name": "Phase 7: Firewall Blocking",
           "url": "{{ config.site_url }}phase7/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 8: Hosts Watchdog",
+          "url": "{{ config.site_url }}phase8/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 9: Final Connection",
+          "url": "{{ config.site_url }}phase9/"
         }
       ]
     }
@@ -102,7 +117,66 @@
   </script>
 {% endblock %}
 
-{% block analytics %}
+{% block scripts %}
   {{ super() }}
-  <!-- Additional tracking and SEO enhancements can be added here -->
+  <!-- Theme Toggle Script -->
+  <script src="{{ base_url }}/assets/js/theme-toggle.js"></script>
+  <!-- Phase Progress Tracker -->
+  <script src="{{ base_url }}/assets/js/progress-tracker.js"></script>
+  <!-- Code Block Enhancer -->
+  <script src="{{ base_url }}/assets/js/code-enhancer.js"></script>
+  <!-- Quick Actions Floating Bar -->
+  <script>
+    (function() {
+      // Create quick actions bar
+      function createQuickActions() {
+        if (document.querySelector('.quick-actions')) return;
+
+        const isPhasePage = window.location.pathname.match(/phase\d+/);
+        const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+
+        const actions = document.createElement('div');
+        actions.className = 'quick-actions';
+        if (isPhasePage) actions.classList.add('quick-actions--visible');
+
+        let html = '';
+
+        // Theme toggle
+        html += '<button class="quick-action-btn" onclick="ThemeToggle.toggle()" title="Toggle theme">🎨</button>';
+
+        // Back to top (only if scrolled)
+        html += '<button class="quick-action-btn quick-action-btn--top" onclick="window.scrollTo(0,0)" title="Back to top">⬆️</button>';
+
+        // Download script for current phase
+        if (isPhasePage) {
+          const phaseMatch = window.location.pathname.match(/phase(\d+)/);
+          if (phaseMatch && phaseMatch[1] >= 4) {
+            html += '<a href="/assets/downloads/phase' + phaseMatch[1] + '*.ps1" class="quick-action-btn" title="Download script">📥</a>';
+          }
+        }
+
+        actions.innerHTML = html;
+        document.body.appendChild(actions);
+
+        // Show/hide back to top based on scroll
+        let scrolled = false;
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300 && !scrolled) {
+            actions.classList.add('quick-actions--scrolled');
+            scrolled = true;
+          } else if (window.scrollY <= 300 && scrolled) {
+            actions.classList.remove('quick-actions--scrolled');
+            scrolled = false;
+          }
+        }, { passive: true });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', createQuickActions);
+      } else {
+        createQuickActions();
+      }
+      setTimeout(createQuickActions, 500);
+    })();
+  </script>
 {% endblock %}

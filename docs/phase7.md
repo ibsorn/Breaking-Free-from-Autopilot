@@ -191,13 +191,13 @@ This happens **instantly and invisibly**. The user never sees a notification, bu
 
 ---
 
-## After Phase 8
+## After Phase 7
 
 Your device now has **three independent layers of protection**:
 
 1. **DNS Level (Phase 6):** Hosts file blocks domain names
 2. **Service Level (Phase 5):** Disabled MDM and telemetry services
-3. **Application Level (Phase 8):** Firewall blocks the executables themselves
+3. **Application Level (Phase 7):** Firewall blocks the executables themselves
 
 Even if one layer fails or is bypassed:
 - The other two layers still protect you

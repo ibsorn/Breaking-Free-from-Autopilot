@@ -1,0 +1,153 @@
+/* ==========================================================================
+   LIGHT THEME VARIANT - Breaking Free from Autopilot
+   Light color scheme alternative to slate theme
+   ========================================================================== */
+
+[data-md-color-scheme="light"] {
+  /* Primary Palette - Light mode */
+  --bf-primary-900: #ffffff;
+  --bf-primary-800: #f8fafc;
+  --bf-primary-700: #f1f5f9;
+  --bf-primary-600: #e2e8f0;
+  --bf-primary-500: #cbd5e1;
+  --bf-primary-400: #94a3b8;
+  --bf-primary-300: #64748b;
+  --bf-primary-200: #475569;
+  --bf-primary-100: #1e293b;
+
+  /* Keep accent colors similar but adjusted for contrast */
+  --bf-accent-cyan: #0891b2;
+  --bf-accent-cyan-light: #06b6d4;
+  --bf-accent-cyan-dark: #0e7490;
+  --bf-accent-orange: #ea580c;
+  --bf-accent-orange-light: #f97316;
+  --bf-accent-red: #dc2626;
+  --bf-accent-green: #16a34a;
+  --bf-accent-yellow: #ca8a04;
+  --bf-accent-purple: #7c3aed;
+
+  /* Light variants for light theme */
+  --bf-accent-purple-light: #a78bfa;
+  --bf-accent-red-light: #fca5a5;
+  --bf-accent-green-light: #86efac;
+  --bf-accent-orange-glow: rgba(234, 88, 12, 0.3);
+  --bf-accent-cyan-focus: rgba(8, 145, 178, 0.15);
+  --bf-accent-cyan-hover: rgba(8, 145, 178, 0.08);
+  --bf-accent-cyan-active: rgba(8, 145, 178, 0.12);
+  --bf-accent-cyan-overlay: rgba(8, 145, 178, 0.3);
+  --bf-accent-cyan-glow-base: rgba(8, 145, 178, 0.2);
+  --bf-accent-cyan-glow-soft: rgba(8, 145, 178, 0.3);
+  --bf-accent-cyan-glow-strong: rgba(8, 145, 178, 0.6);
+  --bf-shimmer: rgba(0, 0, 0, 0.05);
+  --bf-table-stripe: rgba(241, 245, 249, 0.8);
+
+  /* Gradients */
+  --bf-gradient-hero-end: #e0f2fe;
+  --bf-gradient-hero: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+  --bf-gradient-accent: linear-gradient(90deg, #0891b2 0%, #06b6d4 100%);
+
+  /* Shadows - lighter for light theme */
+  --bf-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --bf-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --bf-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --bf-shadow-glow: 0 0 20px var(--bf-accent-cyan-glow-base);
+  --bf-shadow-glow-orange: 0 0 20px var(--bf-accent-orange-glow);
+
+  /* Material theme overrides */
+  --md-default-bg-color: #ffffff;
+  --md-default-fg-color: #1e293b;
+  --md-default-fg-color--light: #475569;
+  --md-default-fg-color--lighter: #64748b;
+  --md-primary-fg-color: #0891b2;
+  --md-primary-fg-color--light: #06b6d4;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #0891b2;
+  --md-accent-bg-color: #f0f9ff;
+  --md-code-bg-color: #f1f5f9;
+  --md-code-fg-color: #334155;
+}
+
+/* Light theme specific adjustments */
+[data-md-color-scheme="light"] .md-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--bf-primary-600);
+  box-shadow: var(--bf-shadow-sm);
+}
+
+[data-md-color-scheme="light"] .md-sidebar--primary {
+  background: #f8fafc;
+  border-right: 1px solid var(--bf-primary-600);
+}
+
+[data-md-color-scheme="light"] .md-typeset code {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #0e7490;
+}
+
+[data-md-color-scheme="light"] .md-typeset pre {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+[data-md-color-scheme="light"] .md-typeset table {
+  border-color: #e2e8f0;
+}
+
+[data-md-color-scheme="light"] .md-typeset table thead {
+  background: #f8fafc;
+}
+
+[data-md-color-scheme="light"] .phase-navigator {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+[data-md-color-scheme="light"] .phase-step {
+  background: #e2e8f0;
+}
+
+[data-md-color-scheme="light"] .phase-step:hover {
+  background: #cbd5e1;
+}
+
+[data-md-color-scheme="light"] .phase-step--current::after {
+  border-color: #ffffff;
+}
+
+[data-md-color-scheme="light"] .phase-nav-btn--prev {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+[data-md-color-scheme="light"] .phase-nav-btn--prev:hover {
+  background: #e2e8f0;
+}
+
+[data-md-color-scheme="light"] .md-nav__link:hover {
+  background: var(--bf-accent-cyan-hover);
+}
+
+[data-md-color-scheme="light"] .md-nav__link--active {
+  background: var(--bf-accent-cyan-active);
+}
+
+/* Selection styling for light theme */
+[data-md-color-scheme="light"] ::selection {
+  background: rgba(8, 145, 178, 0.2);
+  color: #0f172a;
+}
+
+/* Scrollbar for light theme */
+[data-md-color-scheme="light"] ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+[data-md-color-scheme="light"] ::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-color: #f1f5f9;
+}
+
+[data-md-color-scheme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #0891b2;
+}

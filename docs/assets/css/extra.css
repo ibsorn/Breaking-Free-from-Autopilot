@@ -546,8 +546,13 @@ a[href*="breaking-free-complete"].md-button:hover {
   border-right: 1px solid var(--bf-primary-800);
 }
 
+/* The sidebar must stay transparent so it shows the page background. Giving it
+   its own colour (var(--bf-primary-900)) differed from the page background and,
+   because the sticky sidebar element is only ~58px tall while the nav content
+   overflows it, only the top strip got painted — leaving a two-tone box with a
+   visible seam. The border-right below still separates it from the content. */
 .md-sidebar--primary {
-  background: var(--bf-primary-900);
+  background: transparent;
 }
 
 /* On desktop the primary sidebar showed the site name as a title label, which

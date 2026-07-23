@@ -101,7 +101,10 @@
 }
 
 [data-md-color-scheme="light"] .md-sidebar--primary {
-  background: #f8fafc;
+  /* Transparent so it matches the page background — a distinct colour left a
+     two-tone seam because the sticky sidebar element is far shorter than its
+     overflowing nav content (see extra.css). */
+  background: transparent;
   border-right: 1px solid var(--bf-primary-600);
 }
 

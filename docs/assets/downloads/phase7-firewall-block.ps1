@@ -1,4 +1,4 @@
-# Phase 8: Automated MDM Process Firewall Blocking Script
+﻿# Phase 7: Automated MDM Process Firewall Blocking Script
 # This script creates outbound firewall rules to block MDM and enrollment executables
 # Includes automatic UAC elevation
 
@@ -10,7 +10,7 @@ if (-NOT ([Security.Principal.WindowsIdentity]::GetCurrent().Groups -match "S-1-
 }
 
 Write-Host "=================================================" -ForegroundColor Cyan
-Write-Host "Phase 8: Firewall-Based MDM Process Blocking" -ForegroundColor Cyan
+Write-Host "Phase 7: Firewall-Based MDM Process Blocking" -ForegroundColor Cyan
 Write-Host "=================================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -77,7 +77,7 @@ foreach ($process in $mdmProcesses) {
 
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Cyan
-Write-Host "Phase 8 Complete!" -ForegroundColor Cyan
+Write-Host "Phase 7 Complete!" -ForegroundColor Cyan
 Write-Host "=================================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Summary:" -ForegroundColor Green
@@ -95,7 +95,7 @@ $rules = Get-NetFirewallRule | Where-Object {$_.DisplayName -like "*Block-Autopi
 if ($rules) {
     $rules | Select-Object DisplayName, Enabled, Direction, Action | Format-Table -AutoSize
 } else {
-    Write-Host "No rules found. This may indicate the script didn't complete successfully." -ForegroundColor Orange
+    Write-Host "No rules found. This may indicate the script didn't complete successfully." -ForegroundColor DarkYellow
 }
 
 Write-Host ""

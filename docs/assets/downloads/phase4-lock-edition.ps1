@@ -1,4 +1,4 @@
-# Phase 4: Automated Key Purging and Edition Lock Script
+﻿# Phase 4: Automated Key Purging and Edition Lock Script
 # Automatically detects OS edition, purges OEM keys, and locks the current edition
 # Includes robust automatic UAC elevation
 
@@ -68,7 +68,7 @@ try {
     $regInfo = Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -ErrorAction Stop
     $currentEdition = $regInfo.EditionID
 } catch {
-    Write-Host "⚠ Could not read EditionID from registry. Proceeding with fallback." -ForegroundColor Orange
+    Write-Host "⚠ Could not read EditionID from registry. Proceeding with fallback." -ForegroundColor DarkYellow
 }
 
 # Logic to determine the correct generic key
@@ -85,7 +85,7 @@ if ($null -ne $currentEdition -and $currentEdition -match "Core") {
     # Absolute Failsafe: Default to Home if detection fails or edition is obscure
     $targetKey = "YTMG3-N6DKC-DKB77-7M9GH-8HVX7"
     $targetName = "Home (Fallback)"
-    Write-Host "⚠ Unrecognized or missing Edition ($currentEdition). Forcing fallback to Home Edition." -ForegroundColor Orange
+    Write-Host "⚠ Unrecognized or missing Edition ($currentEdition). Forcing fallback to Home Edition." -ForegroundColor DarkYellow
 }
 Write-Host ""
 
@@ -97,7 +97,7 @@ try {
     Write-Host "✓ Motherboard key purged" -ForegroundColor Green
     Wait-WithProgress -Seconds 2 -Message "Processing"
 } catch {
-    Write-Host "⚠ Warning during motherboard key purge: $_" -ForegroundColor Orange
+    Write-Host "⚠ Warning during motherboard key purge: $_" -ForegroundColor DarkYellow
 }
 Write-Host ""
 
@@ -108,7 +108,7 @@ try {
     Write-Host "✓ Preloaded key uninstalled" -ForegroundColor Green
     Wait-WithProgress -Seconds 3 -Message "Clearing cache"
 } catch {
-    Write-Host "⚠ No preloaded key found or already removed" -ForegroundColor Orange
+    Write-Host "⚠ No preloaded key found or already removed" -ForegroundColor DarkYellow
 }
 Write-Host ""
 

@@ -11,6 +11,7 @@
 name: Deploy Site
 
 on:
+  workflow_dispatch:
   push:
     paths:
     - 'docs/**'
@@ -18,6 +19,7 @@ on:
     - 'theme/**'
     - 'overrides/**'
     branches:
+    - master
     - main
     #
     # If your repository would have releases should you uncomment the below lines

@@ -1,4 +1,4 @@
-# =================================================================
+﻿# =================================================================
 # AUTOPILOT & MDM BYPASS - MASTER MEGA-SCRIPT (PHASES 4-9)
 # =================================================================
 # This script executes ALL core defense layers sequentially:
@@ -82,7 +82,7 @@ try {
         New-ItemProperty -Path $path -Name "DisableOSUpgrade" -Value 1 -PropertyType DWORD -Force -ErrorAction SilentlyContinue | Out-Null
     }
     Write-Host "✓ Forced Edition Upgrades blocked in registry" -ForegroundColor Green
-} catch { Write-Host "⚠ Non-critical error in Layer 1: $_" -ForegroundColor Orange }
+} catch { Write-Host "⚠ Non-critical error in Layer 1: $_" -ForegroundColor DarkYellow }
 Write-Host ""
 
 # =================================================================
@@ -111,7 +111,7 @@ try {
     if (-not (Test-Path $WJPath)) { New-Item -Path $WJPath -Force | Out-Null }
     New-ItemProperty -Path $WJPath -Name "BlockAADWorkplaceJoin" -Value 1 -PropertyType DWORD -Force | Out-Null
     Write-Host "✓ Silent auto-enrollment blocked in registry" -ForegroundColor Green
-} catch { Write-Host "⚠ Non-critical error in Layer 2: $_" -ForegroundColor Orange }
+} catch { Write-Host "⚠ Non-critical error in Layer 2: $_" -ForegroundColor DarkYellow }
 Write-Host ""
 
 # =================================================================
@@ -140,7 +140,7 @@ try {
         Add-MpPreference -ExclusionPath $hostsPath -Force -ErrorAction SilentlyContinue
         Write-Host "✓ Hosts file added to Defender exclusions" -ForegroundColor Green
     }
-} catch { Write-Host "⚠ Non-critical error in Layer 3: $_" -ForegroundColor Orange }
+} catch { Write-Host "⚠ Non-critical error in Layer 3: $_" -ForegroundColor DarkYellow }
 Write-Host ""
 
 # =================================================================
@@ -161,7 +161,7 @@ try {
         }
     }
     Write-Host "✓ Application firewall rules applied to $successCount MDM binaries" -ForegroundColor Green
-} catch { Write-Host "⚠ Non-critical error in Layer 4: $_" -ForegroundColor Orange }
+} catch { Write-Host "⚠ Non-critical error in Layer 4: $_" -ForegroundColor DarkYellow }
 Write-Host ""
 
 # =================================================================
@@ -201,7 +201,7 @@ if ($missing.Count -gt 0) {
     
     Register-ScheduledTask -TaskName $taskName -Description "Restores Autopilot blocking entries if Windows modifies them" -Action $action -Trigger $trigger -Principal $principal -Force | Out-Null
     Write-Host "✓ Watchdog deployed. Hosts file will be monitored 24/7" -ForegroundColor Green
-} catch { Write-Host "⚠ Non-critical error in Layer 5: $_" -ForegroundColor Orange }
+} catch { Write-Host "⚠ Non-critical error in Layer 5: $_" -ForegroundColor DarkYellow }
 Write-Host ""
 
 Wait-WithProgress -Seconds 3 -Message "Running final system diagnostics"
@@ -213,12 +213,23 @@ Write-Host "--- [LAYER 6: FINAL VERIFICATION (Phase 9)] ---" -ForegroundColor Cy
 
 $allClear = $true
 
-# Check 1: MDM Profile
-$mdmCheck = Get-CimInstance -Query "SELECT * FROM Win32_DeviceManagementConfiguration" -ErrorAction SilentlyContinue
-if ($mdmCheck) { 
-    Write-Host "✗ Device still shows MDM management" -ForegroundColor Red; $allClear = $false 
-} else { 
-    Write-Host "✓ No organizational management detected" -ForegroundColor Green 
+# Check 1: MDM Profile (detected via active enrollment + dsregcmd state)
+$mdmEnrolled = $false
+$enrollmentRoot = "HKLM:\SOFTWARE\Microsoft\Enrollments"
+if (Test-Path $enrollmentRoot) {
+    foreach ($enrollment in Get-ChildItem $enrollmentRoot -ErrorAction SilentlyContinue) {
+        $props = Get-ItemProperty -Path $enrollment.PSPath -ErrorAction SilentlyContinue
+        # A real MDM enrollment has an EnrollmentState of 1 and a management URL
+        if ($props.EnrollmentState -eq 1 -and $props.ProviderID) { $mdmEnrolled = $true }
+    }
+}
+$dsregStatus = & dsregcmd /status 2>$null | Out-String
+if ($dsregStatus -match "AzureAdJoined\s*:\s*YES" -or $dsregStatus -match "MdmUrl\s*:\s*https") { $mdmEnrolled = $true }
+
+if ($mdmEnrolled) {
+    Write-Host "✗ Device still shows MDM/organizational management" -ForegroundColor Red; $allClear = $false
+} else {
+    Write-Host "✓ No organizational management detected" -ForegroundColor Green
 }
 
 # Check 2: Services (Fixed Logic: Null equals Disabled)
@@ -248,7 +259,7 @@ if ($allClear) {
 } else {
     Write-Host "                 WARNING: SYSTEM NOT FULLY SECURE                " -ForegroundColor Red -BackgroundColor Black
     Write-Host "=================================================================" -ForegroundColor Cyan
-    Write-Host "Some defenses failed to apply. Check the logs above." -ForegroundColor Orange
+    Write-Host "Some defenses failed to apply. Check the logs above." -ForegroundColor DarkYellow
 }
 Write-Host ""
 Write-Host "Press any key to exit..."

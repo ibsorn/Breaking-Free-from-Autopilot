@@ -1,4 +1,4 @@
-# Phase 9: Hosts File Watchdog Installation Script
+﻿# Phase 8: Hosts File Watchdog Installation Script
 # Automatically monitors and restores hosts file blocking entries if Windows modifies them
 # Includes automatic UAC elevation
 
@@ -138,15 +138,15 @@ try {
         Write-Host "  Run frequency: Every 1 hour" -ForegroundColor Green
         Write-Host "  Privilege level: SYSTEM (Highest)" -ForegroundColor Green
     } else {
-        Write-Host "⚠ Task verification failed" -ForegroundColor Orange
+        Write-Host "⚠ Task verification failed" -ForegroundColor DarkYellow
     }
 } catch {
-    Write-Host "⚠ Could not verify task: $_" -ForegroundColor Orange
+    Write-Host "⚠ Could not verify task: $_" -ForegroundColor DarkYellow
 }
 
 Write-Host ""
 Write-Host "=================================================" -ForegroundColor Cyan
-Write-Host "Phase 9 Installation Complete!" -ForegroundColor Cyan
+Write-Host "Phase 8 Installation Complete!" -ForegroundColor Cyan
 Write-Host "=================================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Watchdog Details:" -ForegroundColor Green

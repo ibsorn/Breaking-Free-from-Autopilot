@@ -1,4 +1,4 @@
-# Phase 5: Automated MDM Disabling Script
+﻿# Phase 5: Automated MDM Disabling Script
 # This script will automatically disable MDM services and block Azure AD enrollment
 # Includes automatic UAC elevation
 
@@ -35,7 +35,7 @@ try {
         Write-Host "✓ Device is not domain/Azure/workplace joined - proceeding" -ForegroundColor Green
     }
 } catch {
-    Write-Host "⚠ Could not verify enrollment status: $_" -ForegroundColor Orange
+    Write-Host "⚠ Could not verify enrollment status: $_" -ForegroundColor DarkYellow
 }
 
 Write-Host ""
@@ -47,7 +47,7 @@ try {
     Set-Service -Name dmwappushservice -StartupType Disabled
     Write-Host "✓ dmwappushservice disabled" -ForegroundColor Green
 } catch {
-    Write-Host "⚠ Could not disable dmwappushservice: $_" -ForegroundColor Orange
+    Write-Host "⚠ Could not disable dmwappushservice: $_" -ForegroundColor DarkYellow
 }
 
 Write-Host ""
@@ -59,7 +59,7 @@ try {
     Set-Service -Name DiagTrack -StartupType Disabled
     Write-Host "✓ DiagTrack disabled" -ForegroundColor Green
 } catch {
-    Write-Host "⚠ Could not disable DiagTrack: $_" -ForegroundColor Orange
+    Write-Host "⚠ Could not disable DiagTrack: $_" -ForegroundColor DarkYellow
 }
 
 Write-Host ""
@@ -80,7 +80,7 @@ try {
     
     Write-Host "✓ MDM registration and Auto-Enrollment blocked" -ForegroundColor Green
 } catch {
-    Write-Host "⚠ Could not block MDM registration: $_" -ForegroundColor Orange
+    Write-Host "⚠ Could not block MDM registration: $_" -ForegroundColor DarkYellow
 }
 
 Write-Host ""
@@ -95,7 +95,7 @@ try {
     New-ItemProperty -Path $WorkplaceJoinPath -Name "BlockAADWorkplaceJoin" -Value 1 -PropertyType DWORD -Force | Out-Null
     Write-Host "✓ Azure AD Workplace Join blocked" -ForegroundColor Green
 } catch {
-    Write-Host "⚠ Could not block Azure AD Workplace Join: $_" -ForegroundColor Orange
+    Write-Host "⚠ Could not block Azure AD Workplace Join: $_" -ForegroundColor DarkYellow
 }
 
 Write-Host ""

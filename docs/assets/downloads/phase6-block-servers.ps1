@@ -1,4 +1,4 @@
-# Phase 6: Automated Hosts File Modification Script
+﻿# Phase 6: Automated Hosts File Modification Script
 # This script will automatically block Microsoft Autopilot and enrollment servers
 # Includes automatic UAC elevation
 
@@ -25,7 +25,7 @@ try {
         Write-Host "✓ Read-only attribute removed" -ForegroundColor Green
     }
 } catch {
-    Write-Host "⚠ Could not remove read-only flag: $_" -ForegroundColor Orange
+    Write-Host "⚠ Could not remove read-only flag: $_" -ForegroundColor DarkYellow
 }
 
 Write-Host ""
@@ -69,7 +69,7 @@ try {
     $hostsFile.IsReadOnly = $true
     Write-Host "✓ Hosts file set to read-only" -ForegroundColor Green
 } catch {
-    Write-Host "⚠ Could not set read-only flag: $_" -ForegroundColor Orange
+    Write-Host "⚠ Could not set read-only flag: $_" -ForegroundColor DarkYellow
 }
 
 Write-Host ""
@@ -83,10 +83,10 @@ try {
         Add-MpPreference -ExclusionPath $hostsPath -Force -ErrorAction SilentlyContinue
         Write-Host "✓ Hosts file added to Defender exclusions" -ForegroundColor Green
     } else {
-        Write-Host "⚠ Windows Defender not available, skipping exclusion" -ForegroundColor Orange
+        Write-Host "⚠ Windows Defender not available, skipping exclusion" -ForegroundColor DarkYellow
     }
 } catch {
-    Write-Host "⚠ Could not add to Defender exclusions: $_" -ForegroundColor Orange
+    Write-Host "⚠ Could not add to Defender exclusions: $_" -ForegroundColor DarkYellow
 }
 
 Write-Host ""

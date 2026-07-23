@@ -1,0 +1,194 @@
+/* ==========================================================================
+   PHASE PROGRESS NAVIGATOR - Breaking Free from Autopilot
+   Visual progress tracker for 9-phase process
+   ========================================================================== */
+
+/* Progress Navigator Container */
+.phase-navigator {
+  position: sticky;
+  top: 80px;
+  z-index: 100;
+  background: var(--bf-primary-900);
+  border: 1px solid var(--bf-primary-700);
+  border-radius: var(--bf-radius-lg);
+  padding: var(--bf-space-md);
+  margin-bottom: var(--bf-space-xl);
+  box-shadow: var(--bf-shadow-md);
+}
+
+.phase-navigator__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--bf-space-md);
+}
+
+.phase-navigator__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bf-primary-300);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.phase-navigator__progress {
+  font-size: 0.85rem;
+  color: var(--bf-accent-cyan);
+  font-weight: 600;
+}
+
+/* Progress Bar Container */
+.phase-navigator__bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: var(--bf-space-md);
+}
+
+/* Individual Phase Step */
+.phase-step {
+  flex: 1;
+  height: 8px;
+  background: var(--bf-primary-700);
+  border-radius: var(--bf-radius-sm);
+  cursor: pointer;
+  transition: all var(--bf-transition-base);
+  position: relative;
+}
+
+.phase-step:hover {
+  background: var(--bf-primary-600);
+  transform: scaleY(1.2);
+}
+
+.phase-step--completed {
+  background: var(--bf-accent-green);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+.phase-step--current {
+  background: var(--bf-accent-cyan);
+  box-shadow: 0 0 12px var(--bf-accent-cyan-glow-base);
+  animation: pulse-current 2s ease-in-out infinite;
+}
+
+.phase-step--current::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: var(--bf-accent-cyan);
+  border-radius: 50%;
+  border: 3px solid var(--bf-primary-900);
+  box-shadow: 0 0 8px var(--bf-accent-cyan-glow-base);
+}
+
+@keyframes pulse-current {
+  0%, 100% { box-shadow: 0 0 8px var(--bf-accent-cyan-glow-base); }
+  50% { box-shadow: 0 0 16px var(--bf-accent-cyan-glow-strong); }
+}
+
+/* Phase Labels */
+.phase-navigator__labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--bf-primary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Phase Navigation Controls */
+.phase-navigator__controls {
+  display: flex;
+  gap: var(--bf-space-sm);
+  margin-top: var(--bf-space-md);
+  padding-top: var(--bf-space-md);
+  border-top: 1px solid var(--bf-primary-800);
+}
+
+.phase-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: var(--bf-radius-md);
+  text-decoration: none !important;
+  transition: all var(--bf-transition-fast);
+  flex: 1;
+  justify-content: center;
+}
+
+.phase-nav-btn--prev {
+  background: var(--bf-primary-800);
+  color: var(--bf-primary-300) !important;
+  border: 1px solid var(--bf-primary-700);
+}
+
+.phase-nav-btn--prev:hover {
+  background: var(--bf-primary-700);
+  color: var(--bf-primary-200) !important;
+}
+
+.phase-nav-btn--next {
+  background: var(--bf-accent-cyan);
+  color: var(--bf-primary-900) !important;
+  font-weight: 600;
+}
+
+.phase-nav-btn--next:hover {
+  background: var(--bf-accent-cyan-light);
+  transform: translateY(-1px);
+  box-shadow: var(--bf-shadow-glow);
+}
+
+.phase-nav-btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Checkmark icon for completed */
+.phase-nav-btn__icon {
+  font-size: 1.1em;
+}
+
+/* Compact mode for mobile */
+@media (max-width: 768px) {
+  .phase-navigator {
+    padding: var(--bf-space-sm);
+    top: 64px;
+  }
+
+  .phase-step {
+    height: 6px;
+  }
+
+  .phase-step--current::after {
+    width: 12px;
+    height: 12px;
+    top: -3px;
+    border-width: 2px;
+  }
+
+  .phase-navigator__labels {
+    font-size: 0.6rem;
+  }
+
+  .phase-nav-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Hide on print */
+@media print {
+  .phase-navigator {
+    display: none;
+  }
+}

@@ -1,0 +1,1339 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Phase 7 - Application-level Firewall blocking. Block MDM executables at the firewall level to prevent outbound connections from device enrollment processes, adding an additional security layer of defense-in-depth.">
+      
+      
+        <meta name="author" content="ibsorn">
+      
+      
+        <link rel="canonical" href="https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase7/">
+      
+      
+        <link rel="prev" href="../phase6/">
+      
+      
+        <link rel="next" href="../phase8/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Phase 7 - Breaking Free from Autopilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../assets/css/progress-nav.css">
+    
+      <link rel="stylesheet" href="../assets/css/theme-light.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <!-- Enhanced SEO Meta Tags -->
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- OpenGraph Meta Tags for Social Sharing -->
+  <meta property="og:site_name" content="Breaking Free from Autopilot">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ibsorn">
+  
+  <!-- Canonical URL for duplicate content prevention -->
+  <link rel="canonical" href="https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase7/">
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD Structured Data for Knowledge Graphs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Breaking Free from Autopilot - Complete Windows Device Unlock Guide",
+    "description": "Comprehensive technical guide to bypass Microsoft Autopilot, MDM, and Azure enrollment on Windows 11 devices",
+    "image": "https://ibsorn.github.io/Breaking-Free-from-Autopilot//assets/images/og-image.jpg",
+    "datePublished": "2026-03-01",
+    "author": {
+      "@type": "Organization",
+      "name": "ibsorn"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Breaking Free from Autopilot",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot//assets/images/logo.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "HowTo",
+      "name": "How to Bypass Autopilot and MDM on Windows",
+      "description": "Complete 9-phase process to remove Autopilot, MDM, and Azure enrollment locks from Windows devices",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Phase 1: Deep Hardware Cleanup",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase1/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 2: USB Preparation",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase2/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 3: Clean Installation",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase3/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 4: Key Purging",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase4/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 5: Telemetry & MDM Removal",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase5/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 6: Server Blocking",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase6/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 7: Firewall Blocking",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase7/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 8: Hosts Watchdog",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase8/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 9: Final Connection",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase9/"
+        }
+      ]
+    }
+  }
+  </script>
+  
+  <!-- Breadcrumb JSON-LD for Navigation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/"
+      }
+    ]
+  }
+  </script>
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#phase-7-application-level-firewall-blocking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Breaking Free from Autopilot" class="md-header__button md-logo" aria-label="Breaking Free from Autopilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Breaking Free from Autopilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Phase 7
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ibsorn/breaking-free-from-autopilot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ibsorn/breaking-free-from-autopilot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Breaking Free from Autopilot" class="md-nav__button md-logo" aria-label="Breaking Free from Autopilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Breaking Free from Autopilot
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ibsorn/breaking-free-from-autopilot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ibsorn/breaking-free-from-autopilot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 7
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-four-double-agents-youre-blocking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Four "Double Agents" You're Blocking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-firewall-blocking-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Firewall Blocking Script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-method-block-via-windows-defender-firewall-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Method: Block via Windows Defender Firewall GUI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Method: Block via Windows Defender Firewall GUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-windows-defender-firewall-with-advanced-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Open Windows Defender Firewall with Advanced Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-outbound-rule-for-deviceenrollerexe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create Outbound Rule for deviceenroller.exe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-outbound-rule-for-omadmclientexe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create Outbound Rule for omadmclient.exe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-outbound-rule-for-dsregcmdexe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Create Outbound Rule for dsregcmd.exe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-create-outbound-rule-for-provtoolexe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Create Outbound Rule for ProvTool.exe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-this-protects-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How This Protects You
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How This Protects You">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-windows-update-includes-new-enrollment-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 1: Windows Update Includes New Enrollment Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-malicious-corporate-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 2: Malicious Corporate Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-cached-corporate-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 3: Cached Corporate Credentials
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-verify-the-rules-were-created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Verify the Rules Were Created
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Verify the Rules Were Created">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#via-powershell-powershell-as-administrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Via PowerShell (PowerShell as Administrator):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#via-windows-firewall-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Via Windows Firewall GUI:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-these-rules-dont-break-normal-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important: These Rules Don't Break Normal Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-these-rules-actually-do-in-the-background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What These Rules Actually Do in the Background
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-phase-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Phase 7
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-if-you-need-to-remove-these-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting: If You Need to Remove These Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting: If You Need to Remove These Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#via-powershell-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Via PowerShell (Admin):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#via-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Via GUI:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-phase-8-optional-automatic-hosts-file-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next: Phase 8 (Optional) - Automatic Hosts File Protection
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="phase-7-application-level-firewall-blocking">Phase 7: Application-Level Firewall Blocking<a class="headerlink" href="#phase-7-application-level-firewall-blocking" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>You've already blocked the <strong>destinations</strong> (domains in the hosts file). Now we'll block the <strong>messengers</strong> – the internal Windows executables that Autopilot and Intune use to communicate with Microsoft servers.</p>
+<p>Think of it as two-layered defense:</p>
+<p><strong>Layer 1 (Previous):</strong> Hosts file blocks the DNS names of Microsoft servers<br />
+<strong>Layer 2 (Now):</strong> Firewall blocks the Windows executables that try to reach ANY server</p>
+<p>Even if Microsoft changes their server IPs, embeds new addresses directly in code, or finds a way around your hosts file, the Windows Firewall will <strong>prevent the application itself from reaching the internet</strong>.</p>
+<p><strong>Time required:</strong> 5 minutes<br />
+<strong>Status:</strong> Device is still offline – connection to internet happens in Phase 9</p>
+<div class="admonition warning">
+<p class="admonition-title">Why Two Layers?</p>
+<p>This is <strong>defense-in-depth</strong> thinking. A single layer can be bypassed. Two independent layers, working at different levels (DNS + Application), are exponentially harder to circumvent. If the firewall rules are removed, the hosts file still protects you. If the hosts file is deleted, the firewall still stops outbound connections.</p>
+</div>
+<hr />
+<h2 id="the-four-double-agents-youre-blocking">The Four "Double Agents" You're Blocking<a class="headerlink" href="#the-four-double-agents-youre-blocking" title="Permanent link">&para;</a></h2>
+<p>These are the Windows System32 executables that handle device enrollment, policy management, and Azure/Entra ID binding:</p>
+<table>
+<thead>
+<tr>
+<th>Executable</th>
+<th>Purpose</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>deviceenroller.exe</strong></td>
+<td>Device Enrollment Client</td>
+<td>Attempts to enroll the device in MDM (Intune)</td>
+</tr>
+<tr>
+<td><strong>omadmclient.exe</strong></td>
+<td>OMA DM (Open Mobile Alliance Device Management) Client</td>
+<td>Downloads and applies MDM policies from Intune</td>
+</tr>
+<tr>
+<td><strong>dsregcmd.exe</strong></td>
+<td>Device Registration Command Tool</td>
+<td>Joins/leaves the device from Azure AD / Entra ID</td>
+</tr>
+<tr>
+<td><strong>ProvTool.exe</strong></td>
+<td>Provisioning Package Tool</td>
+<td>Installs corporate provisioning packages and policies</td>
+</tr>
+</tbody>
+</table>
+<p>By blocking these processes at the firewall, you ensure they <strong>cannot transmit data to any external server</strong>, regardless of the address.</p>
+<div class="admonition note">
+<p class="admonition-title">These Are System Files</p>
+<p>You're not deleting these files. They'll remain in <code>C:\Windows\System32</code>. But Windows Firewall will intercept any outbound connection attempts from these processes and block them silently.</p>
+</div>
+<hr />
+<h2 id="automated-firewall-blocking-script">Automated Firewall Blocking Script<a class="headerlink" href="#automated-firewall-blocking-script" title="Permanent link">&para;</a></h2>
+<p>The easiest way to implement this is with a PowerShell script that creates the firewall rules automatically.</p>
+<p><a class="md-button" href="../assets/downloads/phase7-firewall-block.ps1">📥 Download phase7-firewall-block.ps1</a></p>
+<p><strong>To use the script:</strong></p>
+<ol>
+<li>Download the file above</li>
+<li>Right-click on it and select <strong>Properties</strong></li>
+<li>Check the <strong>"Unblock"</strong> checkbox at the bottom and click <strong>OK</strong></li>
+<li>Right-click on the script file and select <strong>Run with PowerShell</strong></li>
+<li>Click <strong>"Yes"</strong> when Windows asks for Administrator permission (UAC dialog)</li>
+<li>The script will create firewall rules for all four MDM processes</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Script Benefits</p>
+<ul>
+<li>Automatically creates all four firewall rules</li>
+<li>Checks if rules already exist (won't duplicate)</li>
+<li>Shows clear status for each process</li>
+<li>Skips any executables that don't exist on your system</li>
+<li>Provides immediate feedback on success/failure</li>
+</ul>
+</div>
+<hr />
+<h2 id="manual-method-block-via-windows-defender-firewall-gui">Manual Method: Block via Windows Defender Firewall GUI<a class="headerlink" href="#manual-method-block-via-windows-defender-firewall-gui" title="Permanent link">&para;</a></h2>
+<p>If you prefer to do this manually, you can create the rules through the Windows GUI:</p>
+<h3 id="step-1-open-windows-defender-firewall-with-advanced-security">Step 1: Open Windows Defender Firewall with Advanced Security<a class="headerlink" href="#step-1-open-windows-defender-firewall-with-advanced-security" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Press <strong>Windows + R</strong></li>
+<li>Type <code>wf.msc</code> and press <strong>Enter</strong></li>
+<li>Click <strong>Yes</strong> when asked for Administrator permission</li>
+</ol>
+<p>The Windows Defender Firewall advanced management window will open.</p>
+<h3 id="step-2-create-outbound-rule-for-deviceenrollerexe">Step 2: Create Outbound Rule for deviceenroller.exe<a class="headerlink" href="#step-2-create-outbound-rule-for-deviceenrollerexe" title="Permanent link">&para;</a></h3>
+<ol>
+<li>In the left panel, click <strong>Outbound Rules</strong></li>
+<li>In the right panel, click <strong>New Rule...</strong></li>
+<li>Choose <strong>Program</strong> and click <strong>Next</strong></li>
+<li>Select <strong>This program path:</strong></li>
+<li>Click <strong>Browse</strong> and navigate to: <code>C:\Windows\System32\deviceenroller.exe</code></li>
+<li>Click <strong>Next</strong></li>
+<li>Choose <strong>Block</strong> and click <strong>Next</strong></li>
+<li>Select <strong>All</strong> (Domain, Private, Public) and click <strong>Next</strong></li>
+<li>Name it: <code>Block-Autopilot-Process-deviceenroller.exe</code></li>
+<li>Description: <code>Blocks device enrollment agent communication</code></li>
+<li>Click <strong>Finish</strong></li>
+</ol>
+<h3 id="step-3-create-outbound-rule-for-omadmclientexe">Step 3: Create Outbound Rule for omadmclient.exe<a class="headerlink" href="#step-3-create-outbound-rule-for-omadmclientexe" title="Permanent link">&para;</a></h3>
+<p>Repeat Steps 1-2 but use the path: <code>C:\Windows\System32\omadmclient.exe</code></p>
+<p>Name it: <code>Block-Autopilot-Process-omadmclient.exe</code></p>
+<p>Description: <code>Blocks MDM policy download and management</code></p>
+<h3 id="step-4-create-outbound-rule-for-dsregcmdexe">Step 4: Create Outbound Rule for dsregcmd.exe<a class="headerlink" href="#step-4-create-outbound-rule-for-dsregcmdexe" title="Permanent link">&para;</a></h3>
+<p>Repeat Steps 1-2 but use the path: <code>C:\Windows\System32\dsregcmd.exe</code></p>
+<p>Name it: <code>Block-Autopilot-Process-dsregcmd.exe</code></p>
+<p>Description: <code>Blocks Azure AD / Entra ID binding</code></p>
+<h3 id="step-5-create-outbound-rule-for-provtoolexe">Step 5: Create Outbound Rule for ProvTool.exe<a class="headerlink" href="#step-5-create-outbound-rule-for-provtoolexe" title="Permanent link">&para;</a></h3>
+<p>Repeat Steps 1-2 but use the path: <code>C:\Windows\System32\ProvTool.exe</code></p>
+<p>Name it: <code>Block-Autopilot-Process-ProvTool.exe</code></p>
+<p>Description: <code>Blocks provisioning package installation</code></p>
+<div class="admonition success">
+<p class="admonition-title">All Four Rules Created</p>
+<p>Once all four rules are in place, your device is protected at the application level. Even if a future Windows update tries to re-enroll your device, these firewall rules will silently block it.</p>
+</div>
+<hr />
+<h2 id="how-this-protects-you">How This Protects You<a class="headerlink" href="#how-this-protects-you" title="Permanent link">&para;</a></h2>
+<h3 id="scenario-1-windows-update-includes-new-enrollment-logic">Scenario 1: Windows Update Includes New Enrollment Logic<a class="headerlink" href="#scenario-1-windows-update-includes-new-enrollment-logic" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Old defense:</strong> Hosts file blocks the new domain</li>
+<li><strong>This defense:</strong> Even if the domain isn't blocked, the firewall blocks <code>omadmclient.exe</code> before it can query DNS</li>
+</ul>
+<h3 id="scenario-2-malicious-corporate-network">Scenario 2: Malicious Corporate Network<a class="headerlink" href="#scenario-2-malicious-corporate-network" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Old defense:</strong> Hosts file works only for named domains</li>
+<li><strong>This defense:</strong> Even if the network redirects IP addresses, the Firewall blocks the exact process trying to connect</li>
+</ul>
+<h3 id="scenario-3-cached-corporate-credentials">Scenario 3: Cached Corporate Credentials<a class="headerlink" href="#scenario-3-cached-corporate-credentials" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Old defense:</strong> Registry keys prevent auto-enrollment</li>
+<li><strong>This defense:</strong> Even if auto-enrollment somehow triggers, <code>dsregcmd.exe</code> is blocked from reaching any server</li>
+</ul>
+<hr />
+<h2 id="how-to-verify-the-rules-were-created">How to Verify the Rules Were Created<a class="headerlink" href="#how-to-verify-the-rules-were-created" title="Permanent link">&para;</a></h2>
+<h3 id="via-powershell-powershell-as-administrator">Via PowerShell (PowerShell as Administrator):<a class="headerlink" href="#via-powershell-powershell-as-administrator" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">Get-NetFirewallRule</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">DisplayName</span> <span class="o">-like</span> <span class="s2">&quot;*Block-Autopilot*&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>You should see <strong>four rules</strong> listed with status <code>True</code>.</p>
+<h3 id="via-windows-firewall-gui">Via Windows Firewall GUI:<a class="headerlink" href="#via-windows-firewall-gui" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Press <strong>Windows + R</strong></li>
+<li>Type <code>wf.msc</code> and press <strong>Enter</strong></li>
+<li>Click <strong>Outbound Rules</strong> in the left panel</li>
+<li>Look for the four rules starting with <code>Block-Autopilot-Process-*</code></li>
+<li>All four should show <strong>Enabled</strong> in the <strong>Enabled</strong> column</li>
+</ol>
+<hr />
+<h2 id="important-these-rules-dont-break-normal-functions">Important: These Rules Don't Break Normal Functions<a class="headerlink" href="#important-these-rules-dont-break-normal-functions" title="Permanent link">&para;</a></h2>
+<p>The four executables these rules target have <strong>very specific purposes</strong>:</p>
+<ul>
+<li><strong>deviceenroller.exe</strong> – Only communicates with Intune servers (blocked)</li>
+<li><strong>omadmclient.exe</strong> – Only communicates with Intune servers (blocked)</li>
+<li><strong>dsregcmd.exe</strong> – Only communicates with Azure AD servers (blocked)</li>
+<li><strong>ProvTool.exe</strong> – Only applies provisioning packages downloaded by admins (not a concern)</li>
+</ul>
+<p>These processes are <strong>never used for normal Windows operation</strong>. Blocking them will not:
+- Break Windows Update
+- Break normal internet connectivity
+- Prevent you from installing software
+- Stop Windows from working properly
+- Break Microsoft Office or other applications</p>
+<p>Normal Windows processes use different executables (<code>svchost.exe</code>, <code>WinInet</code>, etc.) that remain unblocked.</p>
+<hr />
+<h2 id="what-these-rules-actually-do-in-the-background">What These Rules Actually Do in the Background<a class="headerlink" href="#what-these-rules-actually-do-in-the-background" title="Permanent link">&para;</a></h2>
+<p>Every time Windows (or malicious software) tries to run one of the four blocked executables and it attempts an outbound connection:</p>
+<ol>
+<li>The Firewall sees the process attempting to connect</li>
+<li>It checks the firewall rules</li>
+<li>It finds the <strong>Block</strong> rule you created</li>
+<li>It silently drops the connection (no error, no prompt)</li>
+<li>The process fails silently</li>
+</ol>
+<p>This happens <strong>instantly and invisibly</strong>. The user never sees a notification, but the malicious enrollment is prevented.</p>
+<hr />
+<h2 id="after-phase-7">After Phase 7<a class="headerlink" href="#after-phase-7" title="Permanent link">&para;</a></h2>
+<p>Your device now has <strong>three independent layers of protection</strong>:</p>
+<ol>
+<li><strong>DNS Level (Phase 6):</strong> Hosts file blocks domain names</li>
+<li><strong>Service Level (Phase 5):</strong> Disabled MDM and telemetry services</li>
+<li><strong>Application Level (Phase 7):</strong> Firewall blocks the executables themselves</li>
+</ol>
+<p>Even if one layer fails or is bypassed:
+- The other two layers still protect you
+- It would require an attacker to bypass <strong>all three simultaneously</strong>
+- This is enterprise-grade defense-in-depth security</p>
+<div class="admonition success">
+<p class="admonition-title">Phase 7 Complete</p>
+<p>Your device is now hardened at the application level. Corporate enrollment is not just blocked – it's physically prevented from communicating with any server. The device is "air-gapped" from the enrollment infrastructure at multiple levels, making re-enrollment virtually impossible without physically reinstalling Windows.</p>
+</div>
+<hr />
+<h2 id="troubleshooting-if-you-need-to-remove-these-rules">Troubleshooting: If You Need to Remove These Rules<a class="headerlink" href="#troubleshooting-if-you-need-to-remove-these-rules" title="Permanent link">&para;</a></h2>
+<p>If in the future you need to remove these firewall rules (unlikely, but just in case):</p>
+<h3 id="via-powershell-admin">Via PowerShell (Admin):<a class="headerlink" href="#via-powershell-admin" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Remove-NetFirewallRule</span> <span class="n">-DisplayName</span> <span class="s2">&quot;Block-Autopilot-Process-*&quot;</span> <span class="n">-Confirm</span><span class="p">:</span><span class="nv">$false</span>
+</code></pre></div>
+<h3 id="via-gui">Via GUI:<a class="headerlink" href="#via-gui" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open <strong>Windows Defender Firewall with Advanced Security</strong> (<code>wf.msc</code>)</li>
+<li>Click <strong>Outbound Rules</strong></li>
+<li>Right-click on each <code>Block-Autopilot-Process-*</code> rule</li>
+<li>Select <strong>Delete</strong></li>
+</ol>
+<p>But remember: These rules protect you from involuntary corporate re-enrollment. Keep them in place for as long as you own the device.</p>
+<hr />
+<h2 id="next-phase-8-optional-automatic-hosts-file-protection">Next: Phase 8 (Optional) - Automatic Hosts File Protection<a class="headerlink" href="#next-phase-8-optional-automatic-hosts-file-protection" title="Permanent link">&para;</a></h2>
+<p>You've now implemented application-level firewall blocking. If you want to add one final layer of <strong>automatic protection</strong> that restores your hosts file if Windows ever modifies it during updates, proceed to:</p>
+<p><a href="../phase8/">Phase 8 - Hosts File Watchdog (Optional but Recommended)</a></p>
+<p>Phase 8 installs a scheduled task that automatically monitors your hosts file and restores any blocking entries that Windows removes during updates. It's the final insurance policy for complete protection.</p>
+<div class="admonition note">
+<p class="admonition-title">Phase 8 is Optional</p>
+<p>Your device is already fully hardened by Phase 7. Phase 8 is extra insurance. Most users will find Phase 7 sufficient, but we recommend Phase 8 if you want to literally never think about hosts file restoration again.</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ibsorn/breaking-free-from-autopilot" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.suggest", "search.highlight", "search.share", "content.tabs.link", "navigation.instant", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/js/theme-toggle.js"></script>
+      
+        <script src="../assets/js/progress-tracker.js"></script>
+      
+        <script src="../assets/js/code-enhancer.js"></script>
+      
+    
+  <!-- Theme Toggle Script -->
+  <script src="../assets/js/theme-toggle.js"></script>
+  <!-- Phase Progress Tracker -->
+  <script src="../assets/js/progress-tracker.js"></script>
+  <!-- Code Block Enhancer -->
+  <script src="../assets/js/code-enhancer.js"></script>
+  <!-- Quick Actions Floating Bar -->
+  <script>
+    (function() {
+      // Create quick actions bar
+      function createQuickActions() {
+        if (document.querySelector('.quick-actions')) return;
+
+        const isPhasePage = window.location.pathname.match(/phase\d+/);
+        const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+
+        const actions = document.createElement('div');
+        actions.className = 'quick-actions';
+        if (isPhasePage) actions.classList.add('quick-actions--visible');
+
+        let html = '';
+
+        // Back to top (only if scrolled). The theme toggle lives in the header,
+        // so it is intentionally not duplicated here.
+        html += '<button class="quick-action-btn quick-action-btn--top" onclick="window.scrollTo(0,0)" title="Back to top">⬆️</button>';
+
+        // Download script for current phase. Map each phase to its real script
+        // filename — the previous glob path ("phase4*.ps1") 404'd, and an
+        // absolute "/assets/..." path ignored the GitHub Pages project subpath.
+        const scriptFiles = {
+          '4': 'phase4-lock-edition.ps1',
+          '5': 'phase5-disable-mdm.ps1',
+          '6': 'phase6-block-servers.ps1',
+          '7': 'phase7-firewall-block.ps1',
+          '8': 'phase8-hosts-watchdog.ps1',
+          '9': 'phase9-verify-protection.ps1'
+        };
+        if (isPhasePage) {
+          const phaseMatch = window.location.pathname.match(/phase(\d+)/);
+          if (phaseMatch && scriptFiles[phaseMatch[1]]) {
+            html += '<a href="../assets/downloads/' + scriptFiles[phaseMatch[1]] + '" class="quick-action-btn" title="Download script" download>📥</a>';
+          }
+        }
+
+        actions.innerHTML = html;
+        document.body.appendChild(actions);
+
+        // Show/hide back to top based on scroll
+        let scrolled = false;
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300 && !scrolled) {
+            actions.classList.add('quick-actions--scrolled');
+            scrolled = true;
+          } else if (window.scrollY <= 300 && scrolled) {
+            actions.classList.remove('quick-actions--scrolled');
+            scrolled = false;
+          }
+        }, { passive: true });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', createQuickActions);
+      } else {
+        createQuickActions();
+      }
+      setTimeout(createQuickActions, 500);
+    })();
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,9 @@
+# Allow all search engines to index this site
+User-agent: *
+Allow: /
+
+# Exclude dynamically generated search results (not indexable content)
+Disallow: /search/
+
+# Sitemap location
+Sitemap: https://ibsorn.github.io/Breaking-Free-from-Autopilot/sitemap.xml

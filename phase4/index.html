@@ -1,0 +1,1243 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Phase 4 - Lock Windows 11 to Home edition. Remove preinstalled retail keys, purge license keys, and set registry policies to prevent edition upgrade or MDM re-enrollment.">
+      
+      
+        <meta name="author" content="ibsorn">
+      
+      
+        <link rel="canonical" href="https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase4/">
+      
+      
+        <link rel="prev" href="../phase3/">
+      
+      
+        <link rel="next" href="../phase5/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Phase 4 - Breaking Free from Autopilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../assets/css/progress-nav.css">
+    
+      <link rel="stylesheet" href="../assets/css/theme-light.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <!-- Enhanced SEO Meta Tags -->
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- OpenGraph Meta Tags for Social Sharing -->
+  <meta property="og:site_name" content="Breaking Free from Autopilot">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ibsorn">
+  
+  <!-- Canonical URL for duplicate content prevention -->
+  <link rel="canonical" href="https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase4/">
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD Structured Data for Knowledge Graphs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Breaking Free from Autopilot - Complete Windows Device Unlock Guide",
+    "description": "Comprehensive technical guide to bypass Microsoft Autopilot, MDM, and Azure enrollment on Windows 11 devices",
+    "image": "https://ibsorn.github.io/Breaking-Free-from-Autopilot//assets/images/og-image.jpg",
+    "datePublished": "2026-03-01",
+    "author": {
+      "@type": "Organization",
+      "name": "ibsorn"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Breaking Free from Autopilot",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot//assets/images/logo.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "HowTo",
+      "name": "How to Bypass Autopilot and MDM on Windows",
+      "description": "Complete 9-phase process to remove Autopilot, MDM, and Azure enrollment locks from Windows devices",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Phase 1: Deep Hardware Cleanup",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase1/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 2: USB Preparation",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase2/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 3: Clean Installation",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase3/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 4: Key Purging",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase4/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 5: Telemetry & MDM Removal",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase5/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 6: Server Blocking",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase6/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 7: Firewall Blocking",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase7/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 8: Hosts Watchdog",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase8/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 9: Final Connection",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase9/"
+        }
+      ]
+    }
+  }
+  </script>
+  
+  <!-- Breadcrumb JSON-LD for Navigation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/"
+      }
+    ]
+  }
+  </script>
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#phase-4-key-purging-and-version-lock" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Breaking Free from Autopilot" class="md-header__button md-logo" aria-label="Breaking Free from Autopilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Breaking Free from Autopilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Phase 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ibsorn/breaking-free-from-autopilot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ibsorn/breaking-free-from-autopilot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Breaking Free from Autopilot" class="md-nav__button md-logo" aria-label="Breaking Free from Autopilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Breaking Free from Autopilot
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ibsorn/breaking-free-from-autopilot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ibsorn/breaking-free-from-autopilot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-phase-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Phase Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-youll-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You'll Do
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-alternative-use-a-powershell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Alternative: Use a PowerShell Script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-command-prompt-as-administrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Open Command Prompt as Administrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-delete-the-motherboard-license-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Delete the Motherboard License Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-uninstall-the-pre-installed-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Uninstall the Pre-Installed Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-install-a-generic-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Install a Generic Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-block-forced-os-upgrades-two-registry-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Block Forced OS Upgrades (Two Registry Locations)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-close-registry-editor-and-restart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Close Registry Editor and Restart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-license-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About License Keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-path-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry Path Quick Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="phase-4-key-purging-and-version-lock">Phase 4: Key Purging and Version Lock<a class="headerlink" href="#phase-4-key-purging-and-version-lock" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">⚡ MASTER SCRIPT AVAILABLE - Automate Phases 4–9 (early testing stage, may fail)</p>
+<p>If you prefer <strong>complete automation</strong> instead of manual steps, use the <strong>Master Script</strong> that handles everything from Phase 4 through Phase 9. It is still in an early testing stage and may fail on some devices — if it does, fall back to the individual phase scripts or the manual steps below:</p>
+<p><a class="md-button" href="../assets/downloads/breaking-free-complete.ps1">📥 Download breaking-free-complete.ps1</a></p>
+<p><strong>What it automates:</strong>
+- ✅ Phase 4: Edition locking &amp; license purging
+- ✅ Phase 5: MDM &amp; telemetry services disabling
+- ✅ Phase 6: Hosts file DNS blocking
+- ✅ Phase 7: Firewall application blocking
+- ✅ Phase 8: Watchdog scheduled task installation
+- ✅ Phase 9: Pre-flight verification</p>
+<p><strong>How to use:</strong> Right-click the script &gt; <strong>Run as Administrator</strong>. Takes ~10-15 minutes. Zero manual steps.</p>
+<p><strong>Prefer step-by-step control?</strong> Scroll down to use individual phase scripts or follow manual instructions below.</p>
+</div>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Your device's motherboard contains a <strong>Preinstalled Retail Key (PRK)</strong> – a Pro license engraved in the firmware. If Windows ever connects to Microsoft servers, it will automatically detect this key.</p>
+<h3 id="why-this-phase-matters">Why This Phase Matters<a class="headerlink" href="#why-this-phase-matters" title="Permanent link">&para;</a></h3>
+<p>The goal of Phase 4 is to <strong>prevent Windows from using the corporate PRK (Preinstalled Retail Key) embedded in your device's firmware</strong>. This prevents:
+- Automatic re-activation with the corporate license
+- Forced edition upgrades (especially back to Pro if you're on Home)
+- Policy-based re-enrollment triggered by license detection</p>
+<p><strong>If you installed Home Edition:</strong>
+- Installing a generic Home key prevents Windows from detecting and upgrading to Pro
+- Blocks any attempt to apply the corporate Pro license from the motherboard</p>
+<p><strong>If you installed Pro Edition:</strong>
+- Installing a generic Pro key replaces the corporate license
+- Prevents Windows from using the corporate key even if it detects it
+- Blocks policy-based forced upgrades or re-enrollment based on the corporate license</p>
+<h3 id="what-youll-do">What You'll Do<a class="headerlink" href="#what-youll-do" title="Permanent link">&para;</a></h3>
+<p>In this phase, you'll:
+1. <strong>Delete the corporate PRK</strong> from Windows registry
+2. <strong>Remove any preloaded enterprise keys</strong> that might trigger automatic upgrades
+3. <strong>Install a generic key</strong> (Home key if you installed Home, or skip if you installed Pro with your own key)
+4. <strong>Block Windows from attempting OS upgrades</strong> at the registry level</p>
+<p><strong>Time required:</strong> 5 minutes<br />
+<strong>Important:</strong> Stay offline during this entire phase</p>
+<div class="admonition warning">
+<p class="admonition-title">Still Offline</p>
+<p>Do NOT connect to the internet yet. You're still "immunizing" the device against corporate control. We'll connect in Phase 9 once defenses are fully in place.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">About Preinstalled Retail Keys (PRKs)</p>
+<p>Corporate manufacturers embed Pro/Enterprise licenses directly in the motherboard's BIOS/UEFI. These are called <strong>Preinstalled Retail Keys (PRKs)</strong>. They're designed to automatically "activate" the correct Windows edition when Windows detects them. By purging them from the OS registry, we prevent Windows from ever using them.</p>
+</div>
+<hr />
+<h2 id="automated-alternative-use-a-powershell-script">Automated Alternative: Use a PowerShell Script<a class="headerlink" href="#automated-alternative-use-a-powershell-script" title="Permanent link">&para;</a></h2>
+<p>If you prefer to <strong>automate all of Phase 4</strong>, you can use a PowerShell script that will execute all the recommended commands:</p>
+<p><a class="md-button" href="../assets/downloads/phase4-lock-edition.ps1">📥 Download phase4-lock-edition.ps1</a></p>
+<p><strong>To use the script (Home Edition users):</strong></p>
+<ol>
+<li>Download the file above</li>
+<li>Right-click on it and select <strong>Properties</strong></li>
+<li>Check the <strong>"Unblock"</strong> checkbox at the bottom and click <strong>OK</strong></li>
+<li>Right-click on the script file and select <strong>Run with PowerShell</strong></li>
+<li>Click <strong>"Yes"</strong> when Windows asks for Administrator permission (UAC dialog)</li>
+<li>The script will automatically execute all Phase 4 commands with delays between them</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Why Use the Script?</p>
+<ul>
+<li><strong>Automatic delays</strong> – Each command gets time to process before the next one runs</li>
+<li><strong>No typing required</strong> – No risk of typos in license keys</li>
+<li><strong>Clear visual feedback</strong> – Colorized output shows exactly what's happening</li>
+<li><strong>Handles registry creation</strong> – Automatically creates registry paths if they don't exist</li>
+<li><strong>Faster than manual</strong> – All four steps run automatically</li>
+</ul>
+</div>
+<p>If you prefer to do it manually, or if you installed Pro edition, follow the instructions below.</p>
+<hr />
+<h2 id="step-by-step-instructions">Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-open-command-prompt-as-administrator">Step 1: Open Command Prompt as Administrator<a class="headerlink" href="#step-1-open-command-prompt-as-administrator" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Click the <strong>Start menu</strong></li>
+<li>Type <code>cmd</code> (just type it, don't press Enter immediately)</li>
+<li>You'll see <strong>"Command Prompt"</strong> in the results</li>
+<li><strong>Right-click on it</strong> and select <strong>"Run as administrator"</strong></li>
+<li>Click <strong>"Yes"</strong> when asked if you want to allow this app to make changes</li>
+</ol>
+<p>You should now see a black Command Prompt window with <code>C:\Windows\System32&gt;</code> or similar.</p>
+<div class="admonition note">
+<p class="admonition-title">Command Prompt vs PowerShell</p>
+<p>We're using Command Prompt (cmd), not PowerShell. Make sure you opened the right one.</p>
+</div>
+<h3 id="step-2-delete-the-motherboard-license-key">Step 2: Delete the Motherboard License Key<a class="headerlink" href="#step-2-delete-the-motherboard-license-key" title="Permanent link">&para;</a></h3>
+<p>This removes the record of the Pro license burned into the motherboard:</p>
+<ol>
+<li>
+<p><strong>Type exactly:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>slmgr.vbs /cpky
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Press Enter</strong></p>
+</li>
+<li>A dialog box will appear saying <strong>"Licensing data has been cleared."</strong></li>
+<li>Click <strong>OK</strong></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">What This Does</p>
+<p>The <code>/cpky</code> command purges the certificate from the registry. The motherboard still has Pro license info in firmware, but Windows no longer has a copy of it in the OS.</p>
+</div>
+<h3 id="step-3-uninstall-the-pre-installed-key">Step 3: Uninstall the Pre-Installed Key<a class="headerlink" href="#step-3-uninstall-the-pre-installed-key" title="Permanent link">&para;</a></h3>
+<p>Some corporate devices have pre-installation keys for Pro edition. Let's remove it:</p>
+<ol>
+<li>
+<p><strong>Type exactly:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>slmgr.vbs /upk
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Press Enter</strong></p>
+</li>
+<li>A message will appear saying <strong>"Uninstall SUCCEEDED"</strong> (or similar)</li>
+<li>Click <strong>OK</strong></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Even If No Key Was Found</p>
+<p>This command is safe to run even if there's no pre-installed key. It will simply report that there was nothing to uninstall.</p>
+</div>
+<h3 id="step-4-install-a-generic-key">Step 4: Install a Generic Key<a class="headerlink" href="#step-4-install-a-generic-key" title="Permanent link">&para;</a></h3>
+<p>Now install an official Microsoft generic key for your edition:</p>
+<p><strong>If you installed Home Edition:</strong></p>
+<ol>
+<li>
+<p><strong>Type exactly:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>slmgr.vbs /ipk YTMG3-N6DKC-DKB77-7M9GH-8HVX7
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Press Enter</strong></p>
+</li>
+<li>A dialog box will say <strong>"The product key was successfully installed."</strong> or <strong>"Installed a product key."</strong></li>
+<li>Click <strong>OK</strong></li>
+</ol>
+<p><strong>If you installed Pro Edition:</strong></p>
+<ol>
+<li>
+<p><strong>Type exactly:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>slmgr.vbs /ipk VK7JG-NPHTM-C97JM-9MPGT-3V66T
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Press Enter</strong></p>
+</li>
+<li>A dialog box will say <strong>"The product key was successfully installed."</strong> or <strong>"Installed a product key."</strong></li>
+<li>Click <strong>OK</strong></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">About This Generic Key</p>
+<p>This generic key is <strong>not a permanent activation key</strong> – it's temporary and will expire. After completing all 9 phases, you'll need to purchase a genuine Windows 11 key for permanent activation, but for now it replaces the corporate license and prevents Windows from using the embedded PRK.</p>
+</div>
+<h3 id="step-5-block-forced-os-upgrades-two-registry-locations">Step 5: Block Forced OS Upgrades (Two Registry Locations)<a class="headerlink" href="#step-5-block-forced-os-upgrades-two-registry-locations" title="Permanent link">&para;</a></h3>
+<p>Finally, we'll disable Windows' ability to force upgrade to Pro. <strong>Microsoft uses two separate mechanisms for edition upgrades</strong>, so we'll block both:</p>
+<p><strong>Location 1: Windows Update Path</strong></p>
+<ol>
+<li><strong>Close Command Prompt</strong> (type <code>exit</code> and press Enter, or just close the window)</li>
+<li>Press <strong>Windows + R</strong> to open the Run dialog</li>
+<li>Type <code>regedit</code> and press <strong>Enter</strong></li>
+<li>Click <strong>"Yes"</strong> if asked to allow Registry Editor</li>
+</ol>
+<p>The Registry Editor window will open.</p>
+<div class="admonition warning">
+<p class="admonition-title">Registry Editor is Powerful</p>
+<p>The Registry Editor lets you change Windows at a deep level. Don't change anything except what's described below. One wrong edit could break Windows.</p>
+</div>
+<ol>
+<li>
+<p>In the <strong>left panel</strong>, navigate to:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>HKEY_LOCAL_MACHINE &gt; SOFTWARE &gt; Policies &gt; Microsoft
+</code></pre></div></p>
+</li>
+<li>
+<p>If <code>Policies</code> doesn't exist, right-click on <code>SOFTWARE</code> &gt; <strong>New &gt; Key</strong>, name it <code>Policies</code></p>
+</li>
+<li>
+<p>If <code>Policies &gt; Microsoft</code> doesn't exist, right-click on <code>Policies</code> &gt; <strong>New &gt; Key</strong>, name it <code>Microsoft</code></p>
+</li>
+<li>
+<p><strong>Right-click inside the <code>Microsoft</code> folder</strong> (in the left panel) and select <strong>New &gt; Key</strong></p>
+</li>
+<li>Name it <strong><code>Windows</code></strong> (if it doesn't already exist)</li>
+<li><strong>Right-click on <code>Windows</code></strong> and select <strong>New &gt; Key</strong></li>
+<li>Name it <strong><code>WindowsUpdate</code></strong></li>
+<li><strong>Right-click inside the <code>WindowsUpdate</code> folder</strong> (left panel) &gt; <strong>New &gt; DWORD (32-bit) Value</strong></li>
+<li>Name it <strong><code>DisableOSUpgrade</code></strong></li>
+<li><strong>Double-click it</strong> and set the value to <strong><code>1</code></strong></li>
+<li>Click <strong>OK</strong></li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">First Block Installed</p>
+<p>The WindowsUpdate path now blocks OS version upgrades (e.g., Windows 10 → Windows 11). But Microsoft also uses the <strong>Windows Store component</strong> to silently upgrade editions (Home → Pro). We'll block that too.</p>
+</div>
+<p><strong>Location 2: Windows Store Path (Defense in Depth)</strong></p>
+<ol>
+<li>
+<p>In the left panel, go back to:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>HKEY_LOCAL_MACHINE &gt; SOFTWARE &gt; Policies &gt; Microsoft
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Right-click inside the <code>Microsoft</code> folder</strong> and select <strong>New &gt; Key</strong></p>
+</li>
+<li>Name it <strong><code>WindowsStore</code></strong> (create it if it doesn't exist)</li>
+<li><strong>Right-click inside the <code>WindowsStore</code> folder</strong> &gt; <strong>New &gt; DWORD (32-bit) Value</strong></li>
+<li>Name it <strong><code>DisableOSUpgrade</code></strong></li>
+<li><strong>Double-click it</strong> and set the value to <strong><code>1</code></strong></li>
+<li>Click <strong>OK</strong></li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Upgrade Completely Blocked</p>
+<p>You've now blocked Windows from upgrading your edition through <strong>both</strong> the Windows Update path AND the Windows Store path. This is "defense in depth" — even if Microsoft updates one mechanism, the other will still protect you.</p>
+</div>
+<h3 id="step-6-close-registry-editor-and-restart">Step 6: Close Registry Editor and Restart<a class="headerlink" href="#step-6-close-registry-editor-and-restart" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Close the Registry Editor</li>
+<li>You can restart now, or proceed to Phase 5</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Phase 4 Complete</p>
+<p>Your device is now locked down and corporate PRK keys are removed. Whether you chose Home or Pro, Windows cannot use the corporate license keys and cannot be forced into corporate enrollment. You're one step closer to freedom.</p>
+</div>
+<hr />
+<h2 id="about-license-keys">About License Keys<a class="headerlink" href="#about-license-keys" title="Permanent link">&para;</a></h2>
+<p>The generic keys used in Step 4 are <strong>Microsoft-provided temporary keys</strong> that are freely distributed. They serve one purpose: <strong>prevent Windows from detecting and using the corporate PRK</strong>. After completing all 9 phases and verifying your system works correctly, you should purchase a genuine Windows 11 license key for permanent activation.</p>
+<hr />
+<h2 id="registry-path-quick-reference">Registry Path Quick Reference<a class="headerlink" href="#registry-path-quick-reference" title="Permanent link">&para;</a></h2>
+<p>If you need to find these settings again later, they're at:</p>
+<p><strong>Location 1 (Windows Update):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>DWORD: DisableOSUpgrade = 1
+</code></pre></div></p>
+<p><strong>Location 2 (Windows Store - blocks edition upgrades):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>DWORD: DisableOSUpgrade = 1
+</code></pre></div></p>
+<p>Both are required for complete, defense-in-depth protection against edition upgrades.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ibsorn/breaking-free-from-autopilot" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.suggest", "search.highlight", "search.share", "content.tabs.link", "navigation.instant", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/js/theme-toggle.js"></script>
+      
+        <script src="../assets/js/progress-tracker.js"></script>
+      
+        <script src="../assets/js/code-enhancer.js"></script>
+      
+    
+  <!-- Theme Toggle Script -->
+  <script src="../assets/js/theme-toggle.js"></script>
+  <!-- Phase Progress Tracker -->
+  <script src="../assets/js/progress-tracker.js"></script>
+  <!-- Code Block Enhancer -->
+  <script src="../assets/js/code-enhancer.js"></script>
+  <!-- Quick Actions Floating Bar -->
+  <script>
+    (function() {
+      // Create quick actions bar
+      function createQuickActions() {
+        if (document.querySelector('.quick-actions')) return;
+
+        const isPhasePage = window.location.pathname.match(/phase\d+/);
+        const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+
+        const actions = document.createElement('div');
+        actions.className = 'quick-actions';
+        if (isPhasePage) actions.classList.add('quick-actions--visible');
+
+        let html = '';
+
+        // Back to top (only if scrolled). The theme toggle lives in the header,
+        // so it is intentionally not duplicated here.
+        html += '<button class="quick-action-btn quick-action-btn--top" onclick="window.scrollTo(0,0)" title="Back to top">⬆️</button>';
+
+        // Download script for current phase. Map each phase to its real script
+        // filename — the previous glob path ("phase4*.ps1") 404'd, and an
+        // absolute "/assets/..." path ignored the GitHub Pages project subpath.
+        const scriptFiles = {
+          '4': 'phase4-lock-edition.ps1',
+          '5': 'phase5-disable-mdm.ps1',
+          '6': 'phase6-block-servers.ps1',
+          '7': 'phase7-firewall-block.ps1',
+          '8': 'phase8-hosts-watchdog.ps1',
+          '9': 'phase9-verify-protection.ps1'
+        };
+        if (isPhasePage) {
+          const phaseMatch = window.location.pathname.match(/phase(\d+)/);
+          if (phaseMatch && scriptFiles[phaseMatch[1]]) {
+            html += '<a href="../assets/downloads/' + scriptFiles[phaseMatch[1]] + '" class="quick-action-btn" title="Download script" download>📥</a>';
+          }
+        }
+
+        actions.innerHTML = html;
+        document.body.appendChild(actions);
+
+        // Show/hide back to top based on scroll
+        let scrolled = false;
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300 && !scrolled) {
+            actions.classList.add('quick-actions--scrolled');
+            scrolled = true;
+          } else if (window.scrollY <= 300 && scrolled) {
+            actions.classList.remove('quick-actions--scrolled');
+            scrolled = false;
+          }
+        }, { passive: true });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', createQuickActions);
+      } else {
+        createQuickActions();
+      }
+      setTimeout(createQuickActions, 500);
+    })();
+  </script>
+
+  </body>
+</html>

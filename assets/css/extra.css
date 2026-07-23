@@ -1,0 +1,1217 @@
+@import "extensions/tabbed.css";
+@import "progress-nav.css";
+@import "theme-light.css";
+
+/* ==========================================================================
+   BREAKING FREE FROM AUTOPILOT - CUSTOM THEME
+   A modern, security-focused design with tech aesthetics
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Primary Palette - Deep Security Blue */
+  --bf-primary-900: #0f172a;
+  --bf-primary-800: #1e293b;
+  --bf-primary-700: #334155;
+  --bf-primary-600: #475569;
+  --bf-primary-500: #64748b;
+  --bf-primary-400: #94a3b8;
+  --bf-primary-300: #cbd5e1;
+  --bf-primary-200: #e2e8f0;
+  --bf-primary-100: #f1f5f9;
+
+  /* Accent Colors */
+  --bf-accent-cyan: #06b6d4;
+  --bf-accent-cyan-light: #67e8f9;
+  --bf-accent-cyan-dark: #0891b2;
+  --bf-accent-orange: #f97316;
+  --bf-accent-orange-light: #fb923c;
+  --bf-accent-red: #ef4444;
+  --bf-accent-green: #22c55e;
+  --bf-accent-yellow: #eab308;
+  --bf-accent-purple: #8b5cf6;
+
+  /* Accent Tints & Light Variants */
+  --bf-accent-purple-light: #c4b5fd;
+  --bf-accent-red-light: #fca5a5;
+  --bf-accent-green-light: #86efac;
+  --bf-accent-orange-glow: rgba(249, 115, 22, 0.4);
+  --bf-accent-cyan-focus: rgba(6, 182, 212, 0.2);
+  --bf-accent-cyan-hover: rgba(6, 182, 212, 0.1);
+  --bf-accent-cyan-active: rgba(6, 182, 212, 0.15);
+  --bf-accent-cyan-overlay: rgba(6, 182, 212, 0.4);
+  --bf-accent-cyan-glow-base: rgba(6, 182, 212, 0.3);
+  --bf-accent-cyan-glow-soft: rgba(6, 182, 212, 0.5);
+  --bf-accent-cyan-glow-strong: rgba(6, 182, 212, 0.8);
+  --bf-shimmer: rgba(255, 255, 255, 0.2);
+  --bf-table-stripe: rgba(30, 41, 59, 0.5);
+
+  /* Gradients */
+  --bf-gradient-hero-end: #1e3a5f;
+  --bf-gradient-hero: linear-gradient(135deg, var(--bf-primary-900) 0%, var(--bf-primary-800) 50%, var(--bf-gradient-hero-end) 100%);
+  --bf-gradient-accent: linear-gradient(90deg, var(--bf-accent-cyan) 0%, var(--bf-accent-cyan-light) 100%);
+
+  /* Typography */
+  --bf-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --bf-font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* Spacing Scale */
+  --bf-space-xs: 0.25rem;
+  --bf-space-sm: 0.5rem;
+  --bf-space-md: 1rem;
+  --bf-space-lg: 1.5rem;
+  --bf-space-xl: 2rem;
+  --bf-space-2xl: 3rem;
+
+  /* Shadows */
+  --bf-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --bf-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --bf-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --bf-shadow-glow: 0 0 20px var(--bf-accent-cyan-glow-base);
+  --bf-shadow-glow-orange: 0 0 20px var(--bf-accent-orange-glow);
+
+  /* Border Radius */
+  --bf-radius-sm: 4px;
+  --bf-radius-md: 8px;
+  --bf-radius-lg: 12px;
+  --bf-radius-xl: 16px;
+
+  /* Transitions */
+  --bf-transition-fast: 150ms ease;
+  --bf-transition-base: 250ms ease;
+}
+
+/* --------------------------------------------------------------------------
+   BASE TYPOGRAPHY IMPROVEMENTS
+   -------------------------------------------------------------------------- */
+.md-typeset {
+  font-family: var(--bf-font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.md-typeset h1 {
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  color: var(--bf-primary-100);
+  margin-bottom: var(--bf-space-lg);
+  border-bottom: 2px solid var(--bf-accent-cyan);
+  padding-bottom: var(--bf-space-md);
+}
+
+.md-typeset h2 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+  color: var(--bf-primary-200);
+  margin-top: var(--bf-space-2xl);
+  margin-bottom: var(--bf-space-lg);
+}
+
+.md-typeset h3 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--bf-accent-cyan-light);
+  margin-top: var(--bf-space-xl);
+}
+
+.md-typeset code {
+  font-family: var(--bf-font-mono);
+  font-size: 0.85em;
+  background: var(--bf-primary-800);
+  color: var(--bf-accent-cyan-light);
+  padding: 0.2em 0.4em;
+  border-radius: var(--bf-radius-sm);
+  border: 1px solid var(--bf-primary-700);
+}
+
+.md-typeset pre > code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.md-typeset pre {
+  background: var(--bf-primary-900);
+  border: 1px solid var(--bf-primary-700);
+  border-radius: var(--bf-radius-md);
+  padding: var(--bf-space-md);
+}
+
+/* --------------------------------------------------------------------------
+   HERO SECTION (Homepage)
+   -------------------------------------------------------------------------- */
+.md-content__inner > h1:first-of-type {
+  background: var(--bf-gradient-hero);
+  margin: -1.5rem -1.5rem 2rem -1.5rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 2.5rem;
+  border-bottom: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.md-content__inner > h1:first-of-type::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, var(--bf-accent-cyan-hover) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.md-content__inner > h1:first-of-type::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--bf-gradient-accent);
+}
+
+/* --------------------------------------------------------------------------
+   CUSTOM BUTTONS & CTAs
+   -------------------------------------------------------------------------- */
+.md-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bf-space-sm);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--bf-radius-md);
+  transition: all var(--bf-transition-base);
+  text-decoration: none !important;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.md-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--bf-shimmer), transparent);
+  transition: left var(--bf-transition-base);
+}
+
+.md-button:hover::before {
+  left: 100%;
+}
+
+.md-button--primary {
+  background: var(--bf-accent-cyan);
+  color: var(--bf-primary-900) !important;
+  box-shadow: var(--bf-shadow-md);
+}
+
+.md-button--primary:hover {
+  background: var(--bf-accent-cyan-light);
+  transform: translateY(-2px);
+  box-shadow: var(--bf-shadow-lg), var(--bf-shadow-glow);
+}
+
+.md-button--secondary {
+  background: transparent;
+  color: var(--bf-accent-cyan) !important;
+  border-color: var(--bf-accent-cyan);
+}
+
+.md-button--secondary:hover {
+  background: var(--bf-accent-cyan-hover);
+  transform: translateY(-2px);
+}
+
+/* Download button variant */
+a[href$=".ps1"].md-button,
+a[href*="breaking-free-complete"].md-button {
+  background: var(--bf-accent-orange);
+  color: white !important;
+  /* Explicit transparent border: otherwise the Material theme's default
+     border-color: currentColor wins (higher specificity) and paints a
+     stray white 2px outline on the filled orange button. */
+  border-color: transparent;
+}
+
+a[href$=".ps1"].md-button:hover,
+a[href*="breaking-free-complete"].md-button:hover {
+  background: var(--bf-accent-orange-light);
+  box-shadow: var(--bf-shadow-glow-orange);
+}
+
+/* NOTE: no ::after download arrow here on purpose. The 📥 emoji in the
+   button label already signals a download, and a second ::after collided
+   with the shared ripple ::after (.md-button::after), which forced the
+   arrow into a 0px-wide absolutely-positioned box with a circular colored
+   background — rendering it as a broken blob over the button text. */
+
+/* --------------------------------------------------------------------------
+   ADMONITIONS (Warning, Info, Note) - Enhanced
+   -------------------------------------------------------------------------- */
+.md-typeset .admonition {
+  border-radius: var(--bf-radius-lg);
+  border-left-width: 4px;
+  box-shadow: var(--bf-shadow-sm);
+  margin: var(--bf-space-lg) 0;
+}
+
+.md-typeset .admonition-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--bf-space-sm) var(--bf-space-md);
+  border-radius: var(--bf-radius-lg) var(--bf-radius-lg) 0 0;
+}
+
+/* Warning - Orange theme */
+.md-typeset .admonition.warning {
+  background: rgba(249, 115, 22, 0.1);
+  border-left-color: var(--bf-accent-orange);
+}
+
+.md-typeset .admonition.warning > .admonition-title {
+  background: rgba(249, 115, 22, 0.2);
+  color: var(--bf-accent-orange-light);
+}
+
+.md-typeset .admonition.warning > .admonition-title::before {
+  color: var(--bf-accent-orange);
+}
+
+/* Info - Cyan theme */
+.md-typeset .admonition.info,
+.md-typeset .admonition.tip {
+  background: rgba(6, 182, 212, 0.1);
+  border-left-color: var(--bf-accent-cyan);
+}
+
+.md-typeset .admonition.info > .admonition-title,
+.md-typeset .admonition.tip > .admonition-title {
+  background: rgba(6, 182, 212, 0.2);
+  color: var(--bf-accent-cyan-light);
+}
+
+.md-typeset .admonition.info > .admonition-title::before,
+.md-typeset .admonition.tip > .admonition-title::before {
+  color: var(--bf-accent-cyan);
+}
+
+/* Note - Purple theme */
+.md-typeset .admonition.note {
+  background: rgba(139, 92, 246, 0.1);
+  border-left-color: var(--bf-accent-purple);
+}
+
+.md-typeset .admonition.note > .admonition-title {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--bf-accent-purple-light);
+}
+
+/* Danger/Error - Red theme */
+.md-typeset .admonition.danger,
+.md-typeset .admonition.caution {
+  background: rgba(239, 68, 68, 0.1);
+  border-left-color: var(--bf-accent-red);
+}
+
+.md-typeset .admonition.danger > .admonition-title,
+.md-typeset .admonition.caution > .admonition-title {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--bf-accent-red-light);
+}
+
+/* Success - Green theme */
+.md-typeset .admonition.success {
+  background: rgba(34, 197, 94, 0.1);
+  border-left-color: var(--bf-accent-green);
+}
+
+.md-typeset .admonition.success > .admonition-title {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--bf-accent-green-light);
+}
+
+/* --------------------------------------------------------------------------
+   PHASE CARDS & BADGES
+   -------------------------------------------------------------------------- */
+/* Phase badges in tables */
+.md-typeset table td:first-child strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.5rem;
+  padding: 0.35rem 0.75rem;
+  background: var(--bf-gradient-accent);
+  color: var(--bf-primary-900);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: var(--bf-radius-md);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   TABLES - Enhanced
+   -------------------------------------------------------------------------- */
+.md-typeset table {
+  border-radius: var(--bf-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--bf-primary-700);
+  box-shadow: var(--bf-shadow-sm);
+}
+
+.md-typeset table thead {
+  background: var(--bf-primary-800);
+}
+
+.md-typeset table thead th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--bf-primary-300);
+  padding: var(--bf-space-md);
+  border-bottom: 2px solid var(--bf-accent-cyan);
+}
+
+.md-typeset table tbody tr {
+  transition: background var(--bf-transition-fast);
+}
+
+.md-typeset table tbody tr:nth-child(even) {
+  background: var(--bf-table-stripe);
+}
+
+.md-typeset table tbody tr:hover {
+  background: var(--bf-accent-cyan-hover);
+}
+
+.md-typeset table tbody td {
+  padding: var(--bf-space-md);
+  border-bottom: 1px solid var(--bf-primary-700);
+}
+
+/* --------------------------------------------------------------------------
+   HORIZONTAL RULES & DIVIDERS
+   -------------------------------------------------------------------------- */
+.md-typeset hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--bf-accent-cyan), transparent);
+  margin: var(--bf-space-2xl) 0;
+}
+
+/* --------------------------------------------------------------------------
+   NAVIGATION IMPROVEMENTS
+   -------------------------------------------------------------------------- */
+.md-nav__link {
+  transition: color var(--bf-transition-fast);
+  border-radius: var(--bf-radius-sm);
+  padding: 0.3rem 0.5rem;
+  margin: 0 -0.5rem;
+}
+
+.md-nav__link:hover {
+  color: var(--bf-accent-cyan);
+  background: var(--bf-accent-cyan-hover);
+}
+
+.md-nav__link--active {
+  color: var(--bf-accent-cyan);
+  font-weight: 600;
+  background: var(--bf-accent-cyan-active);
+}
+
+/* Remove bullets and decorative elements from navigation */
+.md-nav__item::before,
+.md-nav__item::after,
+.md-nav__icon::before,
+.md-nav__icon::after {
+  display: none;
+  content: none;
+}
+
+/* Remove marker pseudo-element from nav items */
+.md-nav__item::marker {
+  display: none;
+  content: none;
+}
+
+/* Remove list bullets from navigation lists */
+.md-nav__list {
+  list-style: none;
+}
+
+/* Ensure TOC sidebar has no bullets */
+.md-nav--secondary .md-nav__item,
+[data-md-component="toc"] .md-nav__item {
+  list-style: none;
+}
+
+[data-md-component="toc"] .md-nav__item::marker,
+.md-nav--secondary .md-nav__item::marker {
+  display: none;
+  content: none;
+}
+
+/* --------------------------------------------------------------------------
+   INTEGRATED TABLE OF CONTENTS (toc.integrate)
+   The page's section headings are shown nested under the active page in the
+   LEFT sidebar, and expand in place when you open a phase — instead of a
+   separate right-hand column.
+   -------------------------------------------------------------------------- */
+.md-sidebar--primary [data-md-component="toc"] {
+  margin: 0.35rem 0 0.65rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--bf-primary-700);
+  animation: bf-toc-reveal 0.28s ease both;
+}
+
+@keyframes bf-toc-reveal {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.md-sidebar--primary [data-md-component="toc"] .md-nav__list {
+  margin: 0;
+}
+
+.md-sidebar--primary [data-md-component="toc"] .md-nav__link {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--bf-primary-400);
+  padding: 0.22rem 0.5rem;
+  margin: 0.05rem -0.5rem;
+}
+
+.md-sidebar--primary [data-md-component="toc"] .md-nav__link:hover {
+  color: var(--bf-accent-cyan);
+  background: var(--bf-accent-cyan-hover);
+}
+
+/* Currently-read section (scrollspy) gets a clear cyan accent */
+.md-sidebar--primary [data-md-component="toc"] .md-nav__link--active {
+  color: var(--bf-accent-cyan);
+  font-weight: 600;
+  background: var(--bf-accent-cyan-active);
+}
+
+/* Deeper heading levels (h3+) indent softly with their own guide line */
+.md-sidebar--primary [data-md-component="toc"] .md-nav .md-nav {
+  margin-left: 0.15rem;
+  padding-left: 0.7rem;
+  border-left: 1px solid var(--bf-primary-800);
+}
+
+/* --------------------------------------------------------------------------
+   SEARCH & HEADER
+   -------------------------------------------------------------------------- */
+.md-header {
+  background: var(--bf-primary-900);
+  border-bottom: 1px solid var(--bf-primary-700);
+  box-shadow: var(--bf-shadow-md);
+}
+
+.md-header__title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.md-search__input {
+  background: var(--bf-primary-800);
+  border: 1px solid var(--bf-primary-700);
+  border-radius: var(--bf-radius-md);
+  color: var(--bf-primary-200);
+}
+
+.md-search__input:focus {
+  border-color: var(--bf-accent-cyan);
+  box-shadow: 0 0 0 3px var(--bf-accent-cyan-focus);
+}
+
+/* --------------------------------------------------------------------------
+   SIDEBAR IMPROVEMENTS
+   -------------------------------------------------------------------------- */
+.md-sidebar {
+  border-right: 1px solid var(--bf-primary-800);
+}
+
+/* The sidebar must stay transparent so it shows the page background. Giving it
+   its own colour (var(--bf-primary-900)) differed from the page background and,
+   because the sticky sidebar element is only ~58px tall while the nav content
+   overflows it, only the top strip got painted — leaving a two-tone box with a
+   visible seam. The border-right below still separates it from the content. */
+.md-sidebar--primary {
+  background: transparent;
+}
+
+/* On desktop the primary sidebar showed the site name as a title label, which
+   just repeats the title already in the header. Hide it above the sidebar
+   breakpoint; it still appears in the mobile navigation drawer, where it is
+   the drawer's header and actually useful. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-nav--primary > .md-nav__title {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SCROLLBAR CUSTOMIZATION
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bf-primary-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bf-primary-600);
+  border-radius: var(--bf-radius-sm);
+  border: 2px solid var(--bf-primary-900);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bf-accent-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   SELECTION STYLING
+   -------------------------------------------------------------------------- */
+::selection {
+  background: var(--bf-accent-cyan-overlay);
+  color: var(--bf-primary-100);
+}
+
+/* --------------------------------------------------------------------------
+   ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px var(--bf-accent-cyan-glow-soft); }
+  50% { box-shadow: 0 0 20px var(--bf-accent-cyan-glow-strong); }
+}
+
+.md-button--primary:active {
+  animation: pulse-glow 0.5s ease;
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE RESPONSIVE IMPROVEMENTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .md-content__inner > h1:first-of-type {
+    font-size: 1.75rem;
+    padding: 2rem 1rem;
+    margin: -1rem -1rem 1.5rem -1rem;
+  }
+
+  .md-typeset h1 {
+    font-size: 1.75rem;
+  }
+
+  .md-typeset h2 {
+    font-size: 1.35rem;
+  }
+
+  .md-typeset table {
+    font-size: 0.85rem;
+  }
+
+  .md-typeset table thead th,
+  .md-typeset table tbody td {
+    padding: var(--bf-space-sm);
+  }
+}
+
+/* ==========================================================================
+   PHASE CARDS GRID (Homepage)
+   ========================================================================== */
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--bf-space-lg);
+  margin: var(--bf-space-xl) 0;
+}
+
+.phase-card {
+  background: var(--bf-primary-800);
+  border: 1px solid var(--bf-primary-700);
+  border-radius: var(--bf-radius-lg);
+  padding: var(--bf-space-lg);
+  transition: all var(--bf-transition-base);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none !important;
+  display: block;
+}
+
+.phase-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--bf-gradient-accent);
+  transform: scaleX(0);
+  transition: transform var(--bf-transition-base);
+}
+
+.phase-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--bf-accent-cyan);
+  box-shadow: var(--bf-shadow-lg), var(--bf-shadow-glow);
+}
+
+.phase-card:hover::before {
+  transform: scaleX(1);
+}
+
+.phase-card__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--bf-gradient-accent);
+  color: var(--bf-primary-900);
+  font-weight: 800;
+  font-size: 1.25rem;
+  border-radius: var(--bf-radius-md);
+  margin-bottom: var(--bf-space-md);
+  transition: all var(--bf-transition-base);
+}
+
+.phase-card:hover .phase-card__number {
+  transform: scale(1.1);
+  box-shadow: var(--bf-shadow-glow);
+}
+
+.phase-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--bf-primary-100);
+  margin-bottom: var(--bf-space-sm);
+  transition: color var(--bf-transition-fast);
+}
+
+.phase-card:hover .phase-card__title {
+  color: var(--bf-accent-cyan-light);
+}
+
+.phase-card__description {
+  font-size: 0.9rem;
+  color: var(--bf-primary-400);
+  line-height: 1.5;
+  margin-bottom: var(--bf-space-md);
+}
+
+.phase-card__meta {
+  display: flex;
+  gap: var(--bf-space-sm);
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.phase-card__time {
+  background: var(--bf-primary-700);
+  color: var(--bf-primary-300);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--bf-radius-sm);
+}
+
+.phase-card__badge {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--bf-accent-green-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--bf-radius-sm);
+  font-weight: 500;
+}
+
+.phase-card__badge--optional {
+  background: rgba(234, 179, 8, 0.2);
+  color: #fde047;
+}
+
+.phase-card__arrow {
+  position: absolute;
+  bottom: var(--bf-space-md);
+  right: var(--bf-space-md);
+  font-size: 1.5rem;
+  color: var(--bf-primary-600);
+  transition: all var(--bf-transition-base);
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.phase-card:hover .phase-card__arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--bf-accent-cyan);
+}
+
+/* ==========================================================================
+   ENHANCED TYPOGRAPHY
+   ========================================================================== */
+
+/* Section indicator for H2 */
+.md-typeset h2 {
+  position: relative;
+  padding-left: var(--bf-space-md);
+  border-left: 3px solid var(--bf-accent-cyan);
+}
+
+/* H3 with subtle background */
+.md-typeset h3 {
+  background: var(--bf-primary-800);
+  padding: var(--bf-space-sm) var(--bf-space-md);
+  border-radius: var(--bf-radius-md);
+  margin-left: calc(-1 * var(--bf-space-md));
+  margin-right: calc(-1 * var(--bf-space-md));
+}
+
+/* Enhanced code blocks with header */
+.code-block-wrapper {
+  position: relative;
+  margin: var(--bf-space-lg) 0;
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bf-primary-700);
+  padding: var(--bf-space-sm) var(--bf-space-md);
+  border-radius: var(--bf-radius-md) var(--bf-radius-md) 0 0;
+  border: 1px solid var(--bf-primary-600);
+  border-bottom: none;
+}
+
+.code-block-header__lang {
+  font-family: var(--bf-font-mono);
+  font-size: 0.75rem;
+  color: var(--bf-accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.code-block-header__copy {
+  background: transparent;
+  border: 1px solid var(--bf-primary-600);
+  color: var(--bf-primary-400);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--bf-radius-sm);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all var(--bf-transition-fast);
+}
+
+.code-block-header__copy:hover {
+  border-color: var(--bf-accent-cyan);
+  color: var(--bf-accent-cyan);
+  background: var(--bf-accent-cyan-hover);
+}
+
+.code-block-wrapper .highlight {
+  margin: 0;
+  border-radius: 0 0 var(--bf-radius-md) var(--bf-radius-md);
+}
+
+/* Enhanced blockquotes */
+.md-typeset blockquote {
+  border-left: 4px solid var(--bf-accent-cyan);
+  background: var(--bf-primary-800);
+  padding: var(--bf-space-md) var(--bf-space-lg);
+  border-radius: 0 var(--bf-radius-md) var(--bf-radius-md) 0;
+  font-style: normal;
+}
+
+.md-typeset blockquote p:first-child::before {
+  content: '"';
+  font-size: 2rem;
+  color: var(--bf-accent-cyan);
+  line-height: 1;
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   MICROINTERACTIONS & ANIMATIONS
+   ========================================================================== */
+
+/* Animated link underline */
+.md-typeset a {
+  position: relative;
+  text-decoration: none;
+}
+
+.md-typeset a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--bf-accent-cyan);
+  transition: width var(--bf-transition-base);
+}
+
+.md-typeset a:hover::after {
+  width: 100%;
+}
+
+/* The animated underline above is meant for inline text links only. On the
+   filled buttons and phase cards its ::after collided with the shared ripple
+   ::after (which sets top:50%), so on hover it rendered as a cyan strike-through
+   line straight across the element. Opt buttons and cards out of the pseudo. */
+.md-typeset a.md-button::after,
+.md-typeset a.phase-nav-btn::after,
+.md-typeset a.phase-card::after {
+  content: none;
+}
+
+/* Ripple effect for buttons */
+.md-button, .phase-nav-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.md-button::after, .phase-nav-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.md-button:active::after, .phase-nav-btn:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* Admonition icon pulse on page load */
+@keyframes icon-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.md-typeset .admonition-title::before {
+  animation: icon-pulse 0.5s ease;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Content fade-in on load */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.md-content__inner > * {
+  animation: fade-in-up 0.5s ease forwards;
+}
+
+.md-content__inner > *:nth-child(1) { animation-delay: 0.05s; }
+.md-content__inner > *:nth-child(2) { animation-delay: 0.1s; }
+.md-content__inner > *:nth-child(3) { animation-delay: 0.15s; }
+.md-content__inner > *:nth-child(4) { animation-delay: 0.2s; }
+
+/* ==========================================================================
+   ENHANCED STEPS VISUALIZATION
+   ========================================================================== */
+
+.steps-list {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+}
+
+.steps-list > li {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: var(--bf-space-lg);
+  min-height: 40px;
+}
+
+.steps-list > li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--bf-gradient-accent);
+  color: var(--bf-primary-900);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--bf-shadow-md);
+}
+
+.steps-list > li::after {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 48px;
+  width: 2px;
+  height: calc(100% + var(--bf-space-md));
+  background: var(--bf-primary-700);
+}
+
+.steps-list > li:last-child::after {
+  display: none;
+}
+
+.steps-list > li:hover::before {
+  transform: scale(1.1);
+  box-shadow: var(--bf-shadow-glow);
+}
+
+/* Checklist items */
+.checklist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: var(--bf-space-sm);
+}
+
+.checklist li::before {
+  content: '☐';
+  position: absolute;
+  left: 0;
+  color: var(--bf-accent-cyan);
+  font-weight: bold;
+}
+
+.checklist li.checked::before {
+  content: '☑';
+  color: var(--bf-accent-green);
+}
+
+/* ==========================================================================
+   QUICK ACTIONS FLOATING BAR
+   ========================================================================== */
+.quick-actions {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.quick-actions--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quick-action-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--bf-primary-700);
+  background: var(--bf-primary-800);
+  color: var(--bf-primary-300);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--bf-transition-base);
+  box-shadow: var(--bf-shadow-md);
+}
+
+.quick-action-btn:hover {
+  background: var(--bf-accent-cyan);
+  color: var(--bf-primary-900);
+  border-color: var(--bf-accent-cyan);
+  transform: scale(1.1);
+  box-shadow: var(--bf-shadow-glow);
+}
+
+.quick-action-btn[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  right: 60px;
+  background: var(--bf-primary-700);
+  color: var(--bf-primary-100);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* Back to top button - only visible after scroll */
+.quick-action-btn--top {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.quick-actions--scrolled .quick-action-btn--top {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   HERO ENHANCEMENTS
+   ========================================================================== */
+
+/* Pattern overlay for hero */
+.md-content__inner > h1:first-of-type {
+  background-image:
+    radial-gradient(circle at 20% 80%, var(--bf-accent-cyan-overlay) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--bf-accent-cyan-hover) 0%, transparent 40%),
+    var(--bf-gradient-hero);
+}
+
+/* Hero tagline */
+.hero-tagline {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--bf-primary-400);
+  max-width: 800px;
+  margin: 0 auto var(--bf-space-xl);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   ENHANCED ADMONITIONS
+   ========================================================================== */
+
+/* Add icons to admonition titles via CSS */
+.md-typeset .admonition.warning > .admonition-title::before { content: '⚠️ '; }
+.md-typeset .admonition.info > .admonition-title::before { content: 'ℹ️ '; }
+.md-typeset .admonition.tip > .admonition-title::before { content: '💡 '; }
+.md-typeset .admonition.note > .admonition-title::before { content: '📝 '; }
+.md-typeset .admonition.success > .admonition-title::before { content: '✅ '; }
+.md-typeset .admonition.danger > .admonition-title::before { content: '🔴 '; }
+
+/* ==========================================================================
+   MOBILE RESPONSIVE IMPROVEMENTS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .phase-grid {
+    grid-template-columns: 1fr;
+    gap: var(--bf-space-md);
+  }
+
+  .phase-card {
+    padding: var(--bf-space-md);
+  }
+
+  .phase-card__number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .steps-list > li {
+    padding-left: 48px;
+  }
+
+  .steps-list > li::before {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .steps-list > li::after {
+    left: 15px;
+  }
+
+  .quick-actions {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .quick-action-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PRINT STYLES
+   -------------------------------------------------------------------------- */
+@media print {
+  .md-content__inner > h1:first-of-type {
+    background: none !important;
+    color: #000 !important;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .md-button {
+    border: 2px solid #000;
+    color: #000 !important;
+    background: none !important;
+  }
+
+  .phase-navigator,
+  .quick-actions,
+  .phase-card__arrow {
+    display: none !important;
+  }
+
+  .phase-card {
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+
+  .md-typeset h2 {
+    border-left-color: #666;
+  }
+}

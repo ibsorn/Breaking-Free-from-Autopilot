@@ -1,0 +1,1276 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Phase 9 - Final connection to internet and safe account setup. After 8 layers of hardware, licensing, and network protection, connect to internet, create personal Microsoft account, and configure Windows Hello as the final step.">
+      
+      
+        <meta name="author" content="ibsorn">
+      
+      
+        <link rel="canonical" href="https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase9/">
+      
+      
+        <link rel="prev" href="../phase8/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Phase 9 - Breaking Free from Autopilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../assets/css/progress-nav.css">
+    
+      <link rel="stylesheet" href="../assets/css/theme-light.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <!-- Enhanced SEO Meta Tags -->
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- OpenGraph Meta Tags for Social Sharing -->
+  <meta property="og:site_name" content="Breaking Free from Autopilot">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ibsorn">
+  
+  <!-- Canonical URL for duplicate content prevention -->
+  <link rel="canonical" href="https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase9/">
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD Structured Data for Knowledge Graphs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Breaking Free from Autopilot - Complete Windows Device Unlock Guide",
+    "description": "Comprehensive technical guide to bypass Microsoft Autopilot, MDM, and Azure enrollment on Windows 11 devices",
+    "image": "https://ibsorn.github.io/Breaking-Free-from-Autopilot//assets/images/og-image.jpg",
+    "datePublished": "2026-03-01",
+    "author": {
+      "@type": "Organization",
+      "name": "ibsorn"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Breaking Free from Autopilot",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot//assets/images/logo.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "HowTo",
+      "name": "How to Bypass Autopilot and MDM on Windows",
+      "description": "Complete 9-phase process to remove Autopilot, MDM, and Azure enrollment locks from Windows devices",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Phase 1: Deep Hardware Cleanup",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase1/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 2: USB Preparation",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase2/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 3: Clean Installation",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase3/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 4: Key Purging",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase4/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 5: Telemetry & MDM Removal",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase5/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 6: Server Blocking",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase6/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 7: Firewall Blocking",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase7/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 8: Hosts Watchdog",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase8/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 9: Final Connection",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase9/"
+        }
+      ]
+    }
+  }
+  </script>
+  
+  <!-- Breadcrumb JSON-LD for Navigation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/"
+      }
+    ]
+  }
+  </script>
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#phase-9-final-connection-to-internet-and-safe-account-setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Breaking Free from Autopilot" class="md-header__button md-logo" aria-label="Breaking Free from Autopilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Breaking Free from Autopilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Phase 9
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ibsorn/breaking-free-from-autopilot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ibsorn/breaking-free-from-autopilot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Breaking Free from Autopilot" class="md-nav__button md-logo" aria-label="Breaking Free from Autopilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Breaking Free from Autopilot
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ibsorn/breaking-free-from-autopilot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ibsorn/breaking-free-from-autopilot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 9
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-flight-check-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Flight Check (Optional but Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-connect-to-the-internet-now-safe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Connect to the Internet (NOW Safe)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-sign-in-with-your-personal-microsoft-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Sign In with Your Personal Microsoft Account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-set-up-windows-hello-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Set Up Windows Hello Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-critical-rule-never-allow-device-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The CRITICAL Rule: Never Allow Device Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The CRITICAL Rule: Never Allow Device Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-watch-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Watch For
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-does-this-happen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Does This Happen?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-device-is-now-ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Device is Now Ready
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#long-term-security-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long-Term Security Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Long-Term Security Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep-these-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep These Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-if" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What If?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations-youve-reached-phase-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congratulations: You've Reached Phase 9!
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-all-defenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary of All Defenses
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="phase-9-final-connection-to-internet-and-safe-account-setup">Phase 9: Final Connection to Internet and Safe Account Setup<a class="headerlink" href="#phase-9-final-connection-to-internet-and-safe-account-setup" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>You've made it! Your device is now:
+- ✅ Free from BIOS-level tracking
+- ✅ OS edition locked down (Home or Pro)
+- ✅ Enrollment services disabled
+- ✅ Enrollment servers blocked</p>
+<p>Now it's time to:
+1. <strong>Connect to the internet</strong> (finally!)
+2. <strong>Set up your personal Microsoft account</strong>
+3. <strong>Learn the ONE critical rule</strong> to prevent corporate takeover
+4. <strong>Configure Windows Hello</strong> for security</p>
+<p><strong>Time required:</strong> 5-10 minutes</p>
+<div class="admonition success">
+<p class="admonition-title">All 8 Layers of Defense Are Active</p>
+<p>From this point on, it's safe to connect to the internet. Your device has 8 independent defensive layers protecting it from Autopilot and MDM enrollment. Only after these defenses are in place should you connect to the network.</p>
+</div>
+<hr />
+<h2 id="pre-flight-check-optional-but-recommended">Pre-Flight Check (Optional but Recommended)<a class="headerlink" href="#pre-flight-check-optional-but-recommended" title="Permanent link">&para;</a></h2>
+<p>Before connecting to the internet, you can optionally verify that all your defenses are properly in place. A verification script is available that checks:</p>
+<ul>
+<li>✅ Hosts file blocking entries are present</li>
+<li>✅ Registry policies are correctly set (<code>DisableOSUpgrade</code>)</li>
+<li>✅ Firewall rules are active</li>
+<li>✅ MDM services are disabled</li>
+</ul>
+<p><a class="md-button" href="../assets/downloads/phase9-verify-protection.ps1">📥 Download phase9-verify-protection.ps1</a></p>
+<p><strong>To run the verification:</strong></p>
+<ol>
+<li>Download the script above</li>
+<li>Right-click on it and select <strong>Properties</strong></li>
+<li>Check the <strong>"Unblock"</strong> checkbox at the bottom and click <strong>OK</strong></li>
+<li>Right-click on the script file and select <strong>Run with PowerShell</strong></li>
+<li>Click <strong>"Yes"</strong> when Windows asks for Administrator permission</li>
+</ol>
+<p>The script will display a report showing which defenses are active and which (if any) need attention. If all checks pass, you're ready to connect safely.</p>
+<div class="admonition note">
+<p class="admonition-title">Verification is Optional</p>
+<p>If you're confident in your setup, you can skip this step and proceed directly to connecting to the internet. This script is just extra insurance.</p>
+</div>
+<hr />
+<h2 id="step-by-step-instructions">Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-connect-to-the-internet-now-safe">Step 1: Connect to the Internet (NOW Safe)<a class="headerlink" href="#step-1-connect-to-the-internet-now-safe" title="Permanent link">&para;</a></h3>
+<p>Now that all your defenses are in place – and ONLY when all 8 previous phases are complete:</p>
+<ol>
+<li><strong>Plug in the Ethernet cable</strong>, OR</li>
+<li><strong>Re-enable WiFi:</strong></li>
+<li>If you use a WiFi kill switch, toggle it back on</li>
+<li>Or go to <strong>Settings &gt; Network &gt; WiFi</strong> and turn it on</li>
+<li>Or restart the WiFi router if you disabled it earlier</li>
+</ol>
+<p>Your device will now connect to the internet. Windows might check for updates and show notifications – this is normal.</p>
+<div class="admonition note">
+<p class="admonition-title">Updates Are Safe Now</p>
+<p>Windows will try to download updates. This is fine – your device can't be re-enrolled in Autopilot anymore. Updates will make your device more secure, not less.</p>
+</div>
+<h3 id="step-2-sign-in-with-your-personal-microsoft-account">Step 2: Sign In with Your Personal Microsoft Account<a class="headerlink" href="#step-2-sign-in-with-your-personal-microsoft-account" title="Permanent link">&para;</a></h3>
+<p>This is when you claim the device as your own:</p>
+<ol>
+<li>Click <strong>Start menu</strong></li>
+<li>Go to <strong>Settings &gt; Accounts &gt; Your info</strong></li>
+<li>Look for <strong>"Sign in with a Microsoft account instead"</strong> (or similar)</li>
+<li>Click it</li>
+<li>Enter your <strong>personal Microsoft account</strong> (your Outlook, Hotmail, Xbox, or any Microsoft email address)</li>
+<li>If you don't have one, click <strong>"Create a new account"</strong> to make one</li>
+<li>Follow the setup steps</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Personal Account, Not Work Account</p>
+<p>Use your personal Microsoft account (like your Gmail-forwarded-to-Outlook, or your personal Outlook address). Do NOT use any work email address, even if you have a personal Microsoft account created with a work email. That can trigger the "Allow my organization to manage this device" dialog.</p>
+</div>
+<h3 id="step-3-set-up-windows-hello-security">Step 3: Set Up Windows Hello Security<a class="headerlink" href="#step-3-set-up-windows-hello-security" title="Permanent link">&para;</a></h3>
+<p>Windows Hello (biometric or PIN login) adds an extra layer of security:</p>
+<ol>
+<li>Still in <strong>Settings &gt; Accounts &gt; Your info</strong>, find <strong>"Sign-in options"</strong> in the left sidebar</li>
+<li>Under Windows Hello, you'll see options for:</li>
+<li><strong>Face Recognition</strong> (if your device has a camera)</li>
+<li><strong>Fingerprint</strong> (if your device has a fingerprint reader)</li>
+<li>
+<p><strong>PIN</strong></p>
+</li>
+<li>
+<p>Click on one (even just a PIN is good) and set it up</p>
+</li>
+<li>This creates a second layer of authentication that even Windows doesn't fully control</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Two Factors is Better</p>
+<p>Setting up Windows Hello PIN or biometric makes your device even more secure. You own the biometric or PIN – not Microsoft, not the corporation.</p>
+</div>
+<hr />
+<h2 id="the-critical-rule-never-allow-device-management">The CRITICAL Rule: Never Allow Device Management<a class="headerlink" href="#the-critical-rule-never-allow-device-management" title="Permanent link">&para;</a></h2>
+<h3 id="what-to-watch-for">What to Watch For<a class="headerlink" href="#what-to-watch-for" title="Permanent link">&para;</a></h3>
+<p>At some point, you might see a dialog like:</p>
+<p><strong>"Allow your organization to manage your device?"</strong></p>
+<p>Or:</p>
+<p><strong>"Your organization is asking to manage your device"</strong></p>
+<p>Or:</p>
+<p><strong>"Allow IT admin to manage this device"</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">CRITICAL - READ THIS</p>
+<p><strong>NEVER click "Yes" or "Agree."</strong></p>
+<p>Even if the dialog seems official or important, even if it claims your organization "requires" it, <strong>ALWAYS:</strong>
+1. <strong>UNCHECK the box</strong> if there is one
+2. <strong>Click "No" or "Don't allow"</strong>
+3. Click <strong>"No, sign in only to this app"</strong> if that option appears</p>
+</div>
+<h3 id="when-does-this-happen">When Does This Happen?<a class="headerlink" href="#when-does-this-happen" title="Permanent link">&para;</a></h3>
+<p>This dialog appears when you try to sign into:
+- <strong>Microsoft Teams</strong> (work version)
+- <strong>Office 365</strong> or <strong>Microsoft 365</strong>
+- <strong>Outlook</strong> (work version)
+- <strong>SharePoint</strong> or <strong>OneDrive</strong> (corporate)</p>
+<div class="admonition warning">
+<p class="admonition-title">You Can Still Use These Apps</p>
+<p>You CAN still use Teams, Office, Outlook, etc. with your work account. Just refuse device management, and you get the apps without the device enrollment. Your organization gets your productivity tools, but not control of your device.</p>
+</div>
+<h3 id="example-scenario">Example Scenario<a class="headerlink" href="#example-scenario" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>You open Microsoft Teams to chat with coworkers.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>A dialog appears: &quot;Allow your organization to manage your device?&quot;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>WRONG: Click &quot;Yes&quot; ❌
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>RIGHT: Uncheck the box and click &quot;No, sign in only to this app&quot; ✅
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Result: Teams works, but your device stays yours.
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Using Work Apps Without Giving Up Your Device</p>
+<p>This is the balance: you can be productive with corporate tools, but your device remains under your control, not corporate control.</p>
+</div>
+<hr />
+<h2 id="your-device-is-now-ready">Your Device is Now Ready<a class="headerlink" href="#your-device-is-now-ready" title="Permanent link">&para;</a></h2>
+<p>After completing the setup:</p>
+<ul>
+<li>✅ All corporate tracking is disabled</li>
+<li>✅ All corporate enrollment is blocked</li>
+<li>✅ Your personal account is in control</li>
+<li>✅ Windows Hello adds extra security</li>
+<li>✅ You can use work apps without giving up device control</li>
+</ul>
+<hr />
+<h2 id="long-term-security-tips">Long-Term Security Tips<a class="headerlink" href="#long-term-security-tips" title="Permanent link">&para;</a></h2>
+<h3 id="keep-these-practices">Keep These Practices<a class="headerlink" href="#keep-these-practices" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Regularly update Windows</strong> – this keeps your device secure against new exploits</li>
+<li><strong>Use your Windows Hello PIN/biometric</strong> – always sign in securely</li>
+<li><strong>Keep backups</strong> – if something goes wrong, you can restore</li>
+<li><strong>Monitor device management</strong> – go to <strong>Settings &gt; Accounts</strong> and verify no organization is managing your device</li>
+<li><strong>Never accept "device management" requests</strong> – the one critical rule</li>
+</ol>
+<h3 id="what-if">What If?<a class="headerlink" href="#what-if" title="Permanent link">&para;</a></h3>
+<p><strong>"I accidentally clicked Yes to device management"</strong>
+- Go to <strong>Settings &gt; Accounts &gt; Access work or school</strong>
+- If your work account is listed, click on it and select <strong>Disconnect</strong>
+- Your device is free again</p>
+<p><strong>"Windows is trying to upgrade me to Pro"</strong>
+- Your Registry key from Phase 4 should prevent this
+- If it's happening, go back to Phase 4 and verify <code>DisableOSUpgrade</code> is set to <code>1</code></p>
+<p><strong>"I see an Autopilot enrollment screen"</strong>
+- This shouldn't happen if you followed all phases
+- Check that your hosts file is protected and read-only (Phase 6)
+- Verify that <code>dmwappushservice</code> is stopped and disabled (Phase 5)</p>
+<div class="admonition success">
+<p class="admonition-title">Phase 9 Complete – You're Done!</p>
+<p>Your device is now a consumer computer under your control, even though it was legally owned by a corporation. You can use work apps and be productive, but no one can remotely manage, lock, or control your device. <strong>Congratulations – your device is free!</strong></p>
+</div>
+<hr />
+<h2 id="congratulations-youve-reached-phase-9">Congratulations: You've Reached Phase 9!<a class="headerlink" href="#congratulations-youve-reached-phase-9" title="Permanent link">&para;</a></h2>
+<p>You've successfully completed all 9 phases. Your device is now protected by:
+- <strong>Phases 1-2:</strong> BIOS and installation enforcements
+- <strong>Phases 3-4:</strong> Clean OS installation and license locking
+- <strong>Phases 5-6:</strong> Service and DNS-level blocking
+- <strong>Phase 7:</strong> Firewall application-level blocking
+- <strong>Phase 8:</strong> (Optional) Automatic hosts file watchdog</p>
+<p>Only now is it safe to connect to the internet.</p>
+<hr />
+<h2 id="summary-of-all-defenses">Summary of All Defenses<a class="headerlink" href="#summary-of-all-defenses" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Defense</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>TPM cleared, Computrace disabled</td>
+<td>BIOS/Hardware</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Edition selection with optional Home forcing</td>
+<td>Installation Media</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Clean Windows install, offline setup</td>
+<td>OS Installation</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Corporate license keys purged, edition locked, upgrades blocked</td>
+<td>Registry/Licensing</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MDM services killed, Azure AD blocked</td>
+<td>OS Services</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Enrollment servers blocked</td>
+<td>Network/Hosts File</td>
+</tr>
+<tr>
+<td>7</td>
+<td>MDM executables blocked at firewall</td>
+<td>Application/Firewall</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Hosts file monitored and auto-restored (optional)</td>
+<td>Continuous Restoration</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Personal account, Windows Hello, internet connection</td>
+<td>Final Safe Account Setup</td>
+</tr>
+</tbody>
+</table>
+<p><strong>These nine layers create an enterprise-grade defense stack (with Phase 8 being optional).</strong> Even if an attacker understands and tries to bypass one or two layers, the remaining independent layers will continue to protect your device.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ibsorn/breaking-free-from-autopilot" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.suggest", "search.highlight", "search.share", "content.tabs.link", "navigation.instant", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/js/theme-toggle.js"></script>
+      
+        <script src="../assets/js/progress-tracker.js"></script>
+      
+        <script src="../assets/js/code-enhancer.js"></script>
+      
+    
+  <!-- Theme Toggle Script -->
+  <script src="../assets/js/theme-toggle.js"></script>
+  <!-- Phase Progress Tracker -->
+  <script src="../assets/js/progress-tracker.js"></script>
+  <!-- Code Block Enhancer -->
+  <script src="../assets/js/code-enhancer.js"></script>
+  <!-- Quick Actions Floating Bar -->
+  <script>
+    (function() {
+      // Create quick actions bar
+      function createQuickActions() {
+        if (document.querySelector('.quick-actions')) return;
+
+        const isPhasePage = window.location.pathname.match(/phase\d+/);
+        const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+
+        const actions = document.createElement('div');
+        actions.className = 'quick-actions';
+        if (isPhasePage) actions.classList.add('quick-actions--visible');
+
+        let html = '';
+
+        // Back to top (only if scrolled). The theme toggle lives in the header,
+        // so it is intentionally not duplicated here.
+        html += '<button class="quick-action-btn quick-action-btn--top" onclick="window.scrollTo(0,0)" title="Back to top">⬆️</button>';
+
+        // Download script for current phase. Map each phase to its real script
+        // filename — the previous glob path ("phase4*.ps1") 404'd, and an
+        // absolute "/assets/..." path ignored the GitHub Pages project subpath.
+        const scriptFiles = {
+          '4': 'phase4-lock-edition.ps1',
+          '5': 'phase5-disable-mdm.ps1',
+          '6': 'phase6-block-servers.ps1',
+          '7': 'phase7-firewall-block.ps1',
+          '8': 'phase8-hosts-watchdog.ps1',
+          '9': 'phase9-verify-protection.ps1'
+        };
+        if (isPhasePage) {
+          const phaseMatch = window.location.pathname.match(/phase(\d+)/);
+          if (phaseMatch && scriptFiles[phaseMatch[1]]) {
+            html += '<a href="../assets/downloads/' + scriptFiles[phaseMatch[1]] + '" class="quick-action-btn" title="Download script" download>📥</a>';
+          }
+        }
+
+        actions.innerHTML = html;
+        document.body.appendChild(actions);
+
+        // Show/hide back to top based on scroll
+        let scrolled = false;
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300 && !scrolled) {
+            actions.classList.add('quick-actions--scrolled');
+            scrolled = true;
+          } else if (window.scrollY <= 300 && scrolled) {
+            actions.classList.remove('quick-actions--scrolled');
+            scrolled = false;
+          }
+        }, { passive: true });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', createQuickActions);
+      } else {
+        createQuickActions();
+      }
+      setTimeout(createQuickActions, 500);
+    })();
+  </script>
+
+  </body>
+</html>

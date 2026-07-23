@@ -1,0 +1,1146 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Phase 6 - Block Autopilot enrollment servers via hosts file. Add Microsoft enrollment domains to hosts file and set Windows Defender exclusions to prevent Autopilot detection.">
+      
+      
+        <meta name="author" content="ibsorn">
+      
+      
+        <link rel="canonical" href="https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase6/">
+      
+      
+        <link rel="prev" href="../phase5/">
+      
+      
+        <link rel="next" href="../phase7/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Phase 6 - Breaking Free from Autopilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../assets/css/progress-nav.css">
+    
+      <link rel="stylesheet" href="../assets/css/theme-light.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <!-- Enhanced SEO Meta Tags -->
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- OpenGraph Meta Tags for Social Sharing -->
+  <meta property="og:site_name" content="Breaking Free from Autopilot">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ibsorn">
+  
+  <!-- Canonical URL for duplicate content prevention -->
+  <link rel="canonical" href="https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase6/">
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD Structured Data for Knowledge Graphs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Breaking Free from Autopilot - Complete Windows Device Unlock Guide",
+    "description": "Comprehensive technical guide to bypass Microsoft Autopilot, MDM, and Azure enrollment on Windows 11 devices",
+    "image": "https://ibsorn.github.io/Breaking-Free-from-Autopilot//assets/images/og-image.jpg",
+    "datePublished": "2026-03-01",
+    "author": {
+      "@type": "Organization",
+      "name": "ibsorn"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Breaking Free from Autopilot",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot//assets/images/logo.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "HowTo",
+      "name": "How to Bypass Autopilot and MDM on Windows",
+      "description": "Complete 9-phase process to remove Autopilot, MDM, and Azure enrollment locks from Windows devices",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Phase 1: Deep Hardware Cleanup",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase1/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 2: USB Preparation",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase2/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 3: Clean Installation",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase3/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 4: Key Purging",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase4/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 5: Telemetry & MDM Removal",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase5/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 6: Server Blocking",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase6/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 7: Firewall Blocking",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase7/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 8: Hosts Watchdog",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase8/"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Phase 9: Final Connection",
+          "url": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/phase9/"
+        }
+      ]
+    }
+  }
+  </script>
+  
+  <!-- Breadcrumb JSON-LD for Navigation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ibsorn.github.io/Breaking-Free-from-Autopilot/"
+      }
+    ]
+  }
+  </script>
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#phase-6-server-blocking-in-the-hosts-file" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Breaking Free from Autopilot" class="md-header__button md-logo" aria-label="Breaking Free from Autopilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Breaking Free from Autopilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Phase 6
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ibsorn/breaking-free-from-autopilot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ibsorn/breaking-free-from-autopilot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Breaking Free from Autopilot" class="md-nav__button md-logo" aria-label="Breaking Free from Autopilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Breaking Free from Autopilot
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ibsorn/breaking-free-from-autopilot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ibsorn/breaking-free-from-autopilot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 6
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-alternative-use-a-powershell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Alternative: Use a PowerShell Script
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated Alternative: Use a PowerShell Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-notepad-as-administrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Open Notepad as Administrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-open-the-hosts-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Open the Hosts File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-the-blocking-entries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add the Blocking Entries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-save-the-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Save the File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-add-the-hosts-file-to-windows-defender-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Add the Hosts File to Windows Defender Exclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-make-the-hosts-file-read-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Make the Hosts File Read-Only
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-test-connectivity-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification: Test Connectivity Block
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youve-accomplished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You've Accomplished
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phase9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="phase-6-server-blocking-in-the-hosts-file">Phase 6: Server Blocking in the Hosts File<a class="headerlink" href="#phase-6-server-blocking-in-the-hosts-file" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Even with all your defenses active, Windows would still contact Autopilot and enrollment servers if given the chance. In this phase, we'll <strong>block these servers at the operating system level</strong> by editing the <code>hosts</code> file.</p>
+<p>The <code>hosts</code> file is a local DNS override – it tells your computer "when you try to reach this internet address, send the request to 0.0.0.0 (nowhere)." This is an elegant, OS-level firewall that doesn't require external software or network configuration.</p>
+<p>We'll then protect the hosts file from being reset by:
+- Adding it to Windows Defender exclusions
+- Making it read-only</p>
+<p><strong>Time required:</strong> 5-10 minutes<br />
+<strong>Special consideration:</strong> We're still offline, and staying that way until Phase 9</p>
+<div class="admonition note">
+<p class="admonition-title">Why 0.0.0.0?</p>
+<p>The special address <code>0.0.0.0</code> is a non-routable address that means "send this nowhere." It's used specifically for blocking domains without needing to know the "fake" IP address.</p>
+</div>
+<hr />
+<h2 id="automated-alternative-use-a-powershell-script">Automated Alternative: Use a PowerShell Script<a class="headerlink" href="#automated-alternative-use-a-powershell-script" title="Permanent link">&para;</a></h2>
+<p>If you prefer to <strong>automate all of Phase 6</strong>, you can use a PowerShell script that will:
+- Automatically add blocking entries to the hosts file
+- Protect the hosts file with read-only flag
+- Add it to Windows Defender exclusions</p>
+<p><a class="md-button" href="../assets/downloads/phase6-block-servers.ps1">📥 Download phase6-block-servers.ps1</a></p>
+<p><strong>To use the script:</strong></p>
+<ol>
+<li>Download the file above</li>
+<li>Right-click on it and select <strong>Properties</strong></li>
+<li>Check the <strong>"Unblock"</strong> checkbox at the bottom and click <strong>OK</strong></li>
+<li>Right-click on the script file and select <strong>Run with PowerShell</strong></li>
+<li>Click <strong>"Yes"</strong> when Windows asks for Administrator permission (UAC dialog)</li>
+<li>The script will automatically modify your hosts file and apply protections</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Script Benefits</p>
+<ul>
+<li>Automatically adds blocking entries</li>
+<li>Sets read-only protection in one go</li>
+<li>Adds to Windows Defender exclusions automatically</li>
+<li>Less chance of manual error</li>
+</ul>
+</div>
+<p>If you prefer to do it manually, follow the instructions below.</p>
+<hr />
+<h3 id="step-1-open-notepad-as-administrator">Step 1: Open Notepad as Administrator<a class="headerlink" href="#step-1-open-notepad-as-administrator" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Click <strong>Start menu</strong></li>
+<li>Search for <strong>Notepad</strong> (just type "notepad")</li>
+<li><strong>Right-click</strong> on <strong>Notepad</strong> in the results</li>
+<li>Select <strong>Run as administrator</strong></li>
+<li>Click <strong>Yes</strong> when asked to allow changes</li>
+</ol>
+<p>A blank Notepad window will open.</p>
+<div class="admonition warning">
+<p class="admonition-title">Must Be Administrator</p>
+<p>Without admin privileges, you won't be able to save changes to the hosts file. If Notepad doesn't open with admin rights, Notepad will fail when you try to save.</p>
+</div>
+<h3 id="step-2-open-the-hosts-file">Step 2: Open the Hosts File<a class="headerlink" href="#step-2-open-the-hosts-file" title="Permanent link">&para;</a></h3>
+<ol>
+<li>In Notepad, go to <strong>File &gt; Open</strong> (or press <strong>Ctrl + O</strong>)</li>
+<li>Navigate to: <code>C:\Windows\System32\drivers\etc</code></li>
+<li>You might see "No files" – that's because by default, Notepad looks for <code>.txt</code> files</li>
+<li>At the bottom right, change the file type from <strong>"Text Documents (*.txt)"</strong> to <strong>"All Files (.)"</strong></li>
+<li>Now you should see a file called <strong><code>hosts</code></strong> (no extension)</li>
+<li><strong>Click on it</strong> and click <strong>Open</strong></li>
+</ol>
+<p>The hosts file will now be open in Notepad. It's a plain text file with some default comments.</p>
+<div class="admonition note">
+<p class="admonition-title">What Does This File Contain?</p>
+<ul>
+<li>The hosts file starts with comments (lines beginning with <code>#</code>)</li>
+<li>At the bottom, you might see <code>127.0.0.1    localhost</code> or similar</li>
+<li>We'll add nine new lines to block Autopilot/Enrollment domains</li>
+</ul>
+</div>
+<h3 id="step-3-add-the-blocking-entries">Step 3: Add the Blocking Entries<a class="headerlink" href="#step-3-add-the-blocking-entries" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Click at the <strong>very end of the file</strong> (after the last line)</li>
+<li>Press <strong>Enter</strong> twice to create a blank line</li>
+<li><strong>Type exactly</strong> these lines (one per line):</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>0.0.0.0 ztd.desktop.microsoft.com
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>0.0.0.0 cs.dds.microsoft.com
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>0.0.0.0 enterpriseregistration.windows.net
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>0.0.0.0 enrollment.manage.microsoft.com
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>0.0.0.0 api.intune.microsoft.com
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>0.0.0.0 portal.manage.microsoft.com
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>0.0.0.0 dsirnpus.microsoft.com
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>0.0.0.0 dc.services.visualstudio.com
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>0.0.0.0 management.azure.com
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Format Matters</p>
+<ul>
+<li>Use <code>0.0.0.0</code> (zero dot zero dot zero dot zero)</li>
+<li>Use a <strong>TAB</strong> or multiple <strong>SPACES</strong> between the address and the domain name (not a mix)</li>
+<li>Do NOT add extra lines or trailing spaces</li>
+<li>The domain names must be exactly as shown (lowercase is typical, but Windows doesn't care about case here)</li>
+</ul>
+</div>
+<p><strong>What each domain does:</strong>
+- <strong>ztd.desktop.microsoft.com</strong> – Zero Touch Deployment (Autopilot) server
+- <strong>cs.dds.microsoft.com</strong> – Device Enrollment Service
+- <strong>enterpriseregistration.windows.net</strong> – Enterprise device registration
+- <strong>enrollment.manage.microsoft.com</strong> – Intune enrollment service
+- <strong>api.intune.microsoft.com</strong> – Intune API (mobile device management)
+- <strong>portal.manage.microsoft.com</strong> – Intune admin portal (device operations)
+- <strong>dsirnpus.microsoft.com</strong> – Device state and policy reporting
+- <strong>dc.services.visualstudio.com</strong> – Diagnostic/telemetry collection
+- <strong>management.azure.com</strong> – Azure management API</p>
+<h3 id="step-4-save-the-file">Step 4: Save the File<a class="headerlink" href="#step-4-save-the-file" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Press <strong>Ctrl + S</strong> to save (or go to <strong>File &gt; Save</strong>)</li>
+<li>The file should save immediately – no dialog should appear</li>
+<li>If a dialog appears asking about the file format, click <strong>Save</strong> or <strong>Yes</strong></li>
+<li>Close Notepad when done</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Hosts File Updated</p>
+<p>Your computer will now redirect any requests to these Microsoft enrollment servers to 0.0.0.0 (nowhere). Autopilot can't reach its servers, so it can't enroll your device.</p>
+</div>
+<hr />
+<h3 id="step-5-add-the-hosts-file-to-windows-defender-exclusions">Step 5: Add the Hosts File to Windows Defender Exclusions<a class="headerlink" href="#step-5-add-the-hosts-file-to-windows-defender-exclusions" title="Permanent link">&para;</a></h3>
+<p>Windows Defender might try to "repair" the hosts file, thinking it's infected or misconfigured. Let's tell Defender to leave it alone:</p>
+<ol>
+<li>Click <strong>Start menu</strong></li>
+<li>Search for and open <strong>Windows Security</strong></li>
+<li>Click <strong>Virus &amp; threat protection</strong></li>
+<li>Scroll down and click <strong>Manage settings</strong> (under "Virus &amp; threat protection settings")</li>
+<li>Scroll down further to <strong>"Exclusions"</strong></li>
+<li>Click <strong>Add or remove exclusions</strong></li>
+<li>Click <strong>Add an exclusion</strong></li>
+<li>Select <strong>File</strong></li>
+<li>Navigate to <code>C:\Windows\System32\drivers\etc</code> and select the <code>hosts</code> file</li>
+<li>Windows will add it – you should see it listed under Exclusions</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Verify the Exclusion</p>
+<p>After adding it, you should see something like <code>c:\windows\system32\drivers\etc\hosts</code> listed under exclusions. If you don't, try adding it again.</p>
+</div>
+<hr />
+<h3 id="step-6-make-the-hosts-file-read-only">Step 6: Make the Hosts File Read-Only<a class="headerlink" href="#step-6-make-the-hosts-file-read-only" title="Permanent link">&para;</a></h3>
+<p>This prevents any program (including malware or system updates) from modifying the file:</p>
+<ol>
+<li>Open <strong>File Explorer</strong></li>
+<li>Navigate to <code>C:\Windows\System32\drivers\etc</code></li>
+<li><strong>Right-click on the <code>hosts</code> file</strong></li>
+<li>Select <strong>Properties</strong></li>
+<li>At the bottom of the "General" tab, check the <strong>Read-only</strong> checkbox</li>
+<li>Click <strong>Apply</strong> and then <strong>OK</strong></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Read-Only = Protected</p>
+<p>Once a file is read-only, even admin programs can't modify it without first removing the read-only flag. This is good for protecting it, but it also means you'll need to uncheck read-only if you ever want to edit the hosts file again.</p>
+</div>
+<hr />
+<h2 id="verification-test-connectivity-block">Verification: Test Connectivity Block<a class="headerlink" href="#verification-test-connectivity-block" title="Permanent link">&para;</a></h2>
+<p>You can verify that the hosts file is working correctly:</p>
+<ol>
+<li>Press <strong>Windows + R</strong></li>
+<li>Type <code>cmd</code> and press Enter</li>
+<li>Type: <code>ping ztd.desktop.microsoft.com</code></li>
+<li>The important part is the address the name resolves to. You should see it resolve to <code>0.0.0.0</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Pinging ztd.desktop.microsoft.com [0.0.0.0] with 32 bytes of data:
+</code></pre></div>
+   The ping itself will then <strong>fail</strong> (for example "General failure", "Destination host unreachable", or "Request timed out"). That failure is expected and correct — <code>0.0.0.0</code> goes nowhere.</li>
+</ol>
+<p>This confirms the domain is being redirected to <code>0.0.0.0</code> instead of Microsoft's real servers.</p>
+<div class="admonition note">
+<p class="admonition-title">What Matters Is the Resolved Address</p>
+<p>If the name resolves to <code>[0.0.0.0]</code>, the hosts file is correctly blocking the server — even though the ping replies fail. If it resolves to a real Microsoft IP address instead, the hosts entry isn't being applied; re-check Steps 3–4.</p>
+</div>
+<hr />
+<h2 id="what-youve-accomplished">What You've Accomplished<a class="headerlink" href="#what-youve-accomplished" title="Permanent link">&para;</a></h2>
+<p>By editing the hosts file, you've created a <strong>local, OS-level firewall</strong> that:
+- Blocks Autopilot enrollment servers
+- Blocks device enrollment services
+- Survives reboots and updates
+- Doesn't require special firewall knowledge</p>
+<p>The domains are now permanently unreachable from your device.</p>
+<div class="admonition success">
+<p class="admonition-title">Phase 6 Complete</p>
+<p>The servers that could re-enroll your device are now blocked at the OS level. Even if corporate certificates somehow remained, they can't contact the enrollment servers to activate. Your device is now truly free from Autopilot. Just one phase left – secure your personal account!</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ibsorn/breaking-free-from-autopilot" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.suggest", "search.highlight", "search.share", "content.tabs.link", "navigation.instant", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+  
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../assets/js/theme-toggle.js"></script>
+      
+        <script src="../assets/js/progress-tracker.js"></script>
+      
+        <script src="../assets/js/code-enhancer.js"></script>
+      
+    
+  <!-- Theme Toggle Script -->
+  <script src="../assets/js/theme-toggle.js"></script>
+  <!-- Phase Progress Tracker -->
+  <script src="../assets/js/progress-tracker.js"></script>
+  <!-- Code Block Enhancer -->
+  <script src="../assets/js/code-enhancer.js"></script>
+  <!-- Quick Actions Floating Bar -->
+  <script>
+    (function() {
+      // Create quick actions bar
+      function createQuickActions() {
+        if (document.querySelector('.quick-actions')) return;
+
+        const isPhasePage = window.location.pathname.match(/phase\d+/);
+        const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+
+        const actions = document.createElement('div');
+        actions.className = 'quick-actions';
+        if (isPhasePage) actions.classList.add('quick-actions--visible');
+
+        let html = '';
+
+        // Back to top (only if scrolled). The theme toggle lives in the header,
+        // so it is intentionally not duplicated here.
+        html += '<button class="quick-action-btn quick-action-btn--top" onclick="window.scrollTo(0,0)" title="Back to top">⬆️</button>';
+
+        // Download script for current phase. Map each phase to its real script
+        // filename — the previous glob path ("phase4*.ps1") 404'd, and an
+        // absolute "/assets/..." path ignored the GitHub Pages project subpath.
+        const scriptFiles = {
+          '4': 'phase4-lock-edition.ps1',
+          '5': 'phase5-disable-mdm.ps1',
+          '6': 'phase6-block-servers.ps1',
+          '7': 'phase7-firewall-block.ps1',
+          '8': 'phase8-hosts-watchdog.ps1',
+          '9': 'phase9-verify-protection.ps1'
+        };
+        if (isPhasePage) {
+          const phaseMatch = window.location.pathname.match(/phase(\d+)/);
+          if (phaseMatch && scriptFiles[phaseMatch[1]]) {
+            html += '<a href="../assets/downloads/' + scriptFiles[phaseMatch[1]] + '" class="quick-action-btn" title="Download script" download>📥</a>';
+          }
+        }
+
+        actions.innerHTML = html;
+        document.body.appendChild(actions);
+
+        // Show/hide back to top based on scroll
+        let scrolled = false;
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 300 && !scrolled) {
+            actions.classList.add('quick-actions--scrolled');
+            scrolled = true;
+          } else if (window.scrollY <= 300 && scrolled) {
+            actions.classList.remove('quick-actions--scrolled');
+            scrolled = false;
+          }
+        }, { passive: true });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', createQuickActions);
+      } else {
+        createQuickActions();
+      }
+      setTimeout(createQuickActions, 500);
+    })();
+  </script>
+
+  </body>
+</html>

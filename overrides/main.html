@@ -141,17 +141,25 @@
 
         let html = '';
 
-        // Theme toggle
-        html += '<button class="quick-action-btn" onclick="ThemeToggle.toggle()" title="Toggle theme">🎨</button>';
-
-        // Back to top (only if scrolled)
+        // Back to top (only if scrolled). The theme toggle lives in the header,
+        // so it is intentionally not duplicated here.
         html += '<button class="quick-action-btn quick-action-btn--top" onclick="window.scrollTo(0,0)" title="Back to top">⬆️</button>';
 
-        // Download script for current phase
+        // Download script for current phase. Map each phase to its real script
+        // filename — the previous glob path ("phase4*.ps1") 404'd, and an
+        // absolute "/assets/..." path ignored the GitHub Pages project subpath.
+        const scriptFiles = {
+          '4': 'phase4-lock-edition.ps1',
+          '5': 'phase5-disable-mdm.ps1',
+          '6': 'phase6-block-servers.ps1',
+          '7': 'phase7-firewall-block.ps1',
+          '8': 'phase8-hosts-watchdog.ps1',
+          '9': 'phase9-verify-protection.ps1'
+        };
         if (isPhasePage) {
           const phaseMatch = window.location.pathname.match(/phase(\d+)/);
-          if (phaseMatch && phaseMatch[1] >= 4) {
-            html += '<a href="/assets/downloads/phase' + phaseMatch[1] + '*.ps1" class="quick-action-btn" title="Download script">📥</a>';
+          if (phaseMatch && scriptFiles[phaseMatch[1]]) {
+            html += '<a href="{{ base_url }}/assets/downloads/' + scriptFiles[phaseMatch[1]] + '" class="quick-action-btn" title="Download script" download>📥</a>';
           }
         }
 

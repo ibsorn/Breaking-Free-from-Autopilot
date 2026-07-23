@@ -859,6 +859,16 @@ a[href*="breaking-free-complete"].md-button:hover {
   width: 100%;
 }
 
+/* The animated underline above is meant for inline text links only. On the
+   filled buttons and phase cards its ::after collided with the shared ripple
+   ::after (which sets top:50%), so on hover it rendered as a cyan strike-through
+   line straight across the element. Opt buttons and cards out of the pseudo. */
+.md-typeset a.md-button::after,
+.md-typeset a.phase-nav-btn::after,
+.md-typeset a.phase-card::after {
+  content: none;
+}
+
 /* Ripple effect for buttons */
 .md-button, .phase-nav-btn {
   position: relative;

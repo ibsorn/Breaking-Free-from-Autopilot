@@ -103,7 +103,8 @@
       cursor: pointer;
       font-size: 1.1rem;
       transition: all 0.25s ease;
-      margin-left: 8px;
+      margin-left: 12px;
+      margin-right: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -121,10 +122,15 @@
       this.style.background = 'transparent';
     });
 
-    // Insert before search or at the end of header inner
+    // Place the toggle on the right of the header, grouped with the other
+    // header controls (repo link) rather than floating between the title and
+    // the search box in the middle of the bar.
+    const source = header.querySelector('.md-header__source');
     const search = header.querySelector('.md-search');
-    if (search) {
-      header.insertBefore(btn, search);
+    if (source) {
+      header.insertBefore(btn, source);
+    } else if (search && search.nextSibling) {
+      header.insertBefore(btn, search.nextSibling);
     } else {
       header.appendChild(btn);
     }

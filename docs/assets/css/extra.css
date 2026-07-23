@@ -237,6 +237,10 @@ a[href$=".ps1"].md-button,
 a[href*="breaking-free-complete"].md-button {
   background: var(--bf-accent-orange);
   color: white !important;
+  /* Explicit transparent border: otherwise the Material theme's default
+     border-color: currentColor wins (higher specificity) and paints a
+     stray white 2px outline on the filled orange button. */
+  border-color: transparent;
 }
 
 a[href$=".ps1"].md-button:hover,
@@ -245,13 +249,11 @@ a[href*="breaking-free-complete"].md-button:hover {
   box-shadow: var(--bf-shadow-glow-orange);
 }
 
-/* Add download icon */
-a[href$=".ps1"].md-button::after,
-a[href*="breaking-free-complete"].md-button::after {
-  content: '↓';
-  font-size: 1.2em;
-  margin-left: 0.3em;
-}
+/* NOTE: no ::after download arrow here on purpose. The 📥 emoji in the
+   button label already signals a download, and a second ::after collided
+   with the shared ripple ::after (.md-button::after), which forced the
+   arrow into a 0px-wide absolutely-positioned box with a circular colored
+   background — rendering it as a broken blob over the button text. */
 
 /* --------------------------------------------------------------------------
    ADMONITIONS (Warning, Info, Note) - Enhanced

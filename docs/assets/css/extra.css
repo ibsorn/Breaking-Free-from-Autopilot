@@ -550,6 +550,16 @@ a[href*="breaking-free-complete"].md-button:hover {
   background: var(--bf-primary-900);
 }
 
+/* On desktop the primary sidebar showed the site name as a title label, which
+   just repeats the title already in the header. Hide it above the sidebar
+   breakpoint; it still appears in the mobile navigation drawer, where it is
+   the drawer's header and actually useful. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-nav--primary > .md-nav__title {
+    display: none;
+  }
+}
+
 /* --------------------------------------------------------------------------
    SCROLLBAR CUSTOMIZATION
    -------------------------------------------------------------------------- */

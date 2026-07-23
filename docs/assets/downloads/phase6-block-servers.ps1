@@ -17,7 +17,7 @@ Write-Host ""
 $hostsPath = "C:\Windows\System32\drivers\etc\hosts"
 
 # Step 1: Remove read-only flag FIRST (before attempting to modify)
-Write-Host "[1/4] Preparing hosts file..." -ForegroundColor Yellow
+Write-Host "[1/5] Preparing hosts file..." -ForegroundColor Yellow
 try {
     $hostsFile = Get-Item $hostsPath -ErrorAction SilentlyContinue
     if ($hostsFile -and $hostsFile.IsReadOnly) {
@@ -31,14 +31,14 @@ try {
 Write-Host ""
 
 # Step 2: Check if entries already exist
-Write-Host "[2/4] Checking hosts file..." -ForegroundColor Yellow
+Write-Host "[2/5] Checking hosts file..." -ForegroundColor Yellow
 $hostsContent = Get-Content $hostsPath -Raw
 
 if ($hostsContent -match "ztd.desktop.microsoft.com") {
     Write-Host "✓ Autopilot and enrollment servers already blocked" -ForegroundColor Green
 } else {
     # Step 3: Add blocking entries
-    Write-Host "[3/4] Adding blocking entries to hosts file..." -ForegroundColor Yellow
+    Write-Host "[3/5] Adding blocking entries to hosts file..." -ForegroundColor Yellow
     try {
         $newEntries = @"
 `n# Autopilot and Enrollment Servers (Phase 6)
@@ -63,7 +63,7 @@ if ($hostsContent -match "ztd.desktop.microsoft.com") {
 Write-Host ""
 
 # Step 4: Protect hosts file (set back to read-only)
-Write-Host "[4/4] Protecting hosts file..." -ForegroundColor Yellow
+Write-Host "[4/5] Protecting hosts file..." -ForegroundColor Yellow
 try {
     $hostsFile = Get-Item $hostsPath
     $hostsFile.IsReadOnly = $true

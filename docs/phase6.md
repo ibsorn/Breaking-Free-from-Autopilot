@@ -78,7 +78,7 @@ The hosts file will now be open in Notepad. It's a plain text file with some def
 !!! note "What Does This File Contain?"
     - The hosts file starts with comments (lines beginning with `#`)
     - At the bottom, you might see `127.0.0.1    localhost` or similar
-    - We'll add two new lines to block Autopilot/Enrollment domains
+    - We'll add nine new lines to block Autopilot/Enrollment domains
 
 ### Step 3: Add the Blocking Entries
 
@@ -170,16 +170,16 @@ You can verify that the hosts file is working correctly:
 1. Press **Windows + R**
 2. Type `cmd` and press Enter
 3. Type: `ping ztd.desktop.microsoft.com`
-4. You should see results like:
+4. The important part is the address the name resolves to. You should see it resolve to `0.0.0.0`:
    ```
    Pinging ztd.desktop.microsoft.com [0.0.0.0] with 32 bytes of data:
-   Reply from 0.0.0.0: bytes=32 time<1ms TTL=128
    ```
+   The ping itself will then **fail** (for example "General failure", "Destination host unreachable", or "Request timed out"). That failure is expected and correct — `0.0.0.0` goes nowhere.
 
-This confirms that attempts to reach these servers are being redirected to 0.0.0.0.
+This confirms the domain is being redirected to `0.0.0.0` instead of Microsoft's real servers.
 
-!!! note "Ping Success Means Block is Working"
-    If you see replies from 0.0.0.0, the hosts file is correctly blocking the server. If you see a different IP address or "Request timed out," something might be wrong.
+!!! note "What Matters Is the Resolved Address"
+    If the name resolves to `[0.0.0.0]`, the hosts file is correctly blocking the server — even though the ping replies fail. If it resolves to a real Microsoft IP address instead, the hosts entry isn't being applied; re-check Steps 3–4.
 
 ---
 

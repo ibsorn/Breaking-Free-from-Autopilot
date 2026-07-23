@@ -8,7 +8,7 @@ This guide walks you through **exactly how to remove them**—no BS, no "you nee
 
 If you want to skip all the manual steps after Phase 3, use the **Master Script** to automate everything:
 
-[📥 Download breaking-free-complete.ps1](https://github.com/ibsorn/Breaking-Free-from-Autopilot/releases/download/v0.1.0-alpha/breaking-free-complete.ps1)
+[📥 Download breaking-free-complete.ps1](https://ibsorn.github.io/Breaking-Free-from-Autopilot/assets/downloads/breaking-free-complete.ps1)
 
 Just right-click > **Run as Administrator**. It handles phases 4–9 automatically (~10-15 minutes).
 

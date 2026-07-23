@@ -5,10 +5,10 @@ keywords: license key, Home edition, registry policy, preinstalled retail key, u
 
 # Phase 4: Key Purging and Version Lock
 
-!!! info "⚡ MASTER SCRIPT AVAILABLE - Automate Phases 4–9"
-    If you prefer **complete automation** instead of manual steps, use the **Master Script** that handles everything from Phase 4 through Phase 9:
+!!! warning "⚡ MASTER SCRIPT AVAILABLE - Automate Phases 4–9 (early testing stage, may fail)"
+    If you prefer **complete automation** instead of manual steps, use the **Master Script** that handles everything from Phase 4 through Phase 9. It is still in an early testing stage and may fail on some devices — if it does, fall back to the individual phase scripts or the manual steps below:
     
-    [📥 Download breaking-free-complete.ps1](https://github.com/ibsorn/Breaking-Free-from-Autopilot/releases/download/v0.1.0-alpha/breaking-free-complete.ps1){: .md-button }
+    [📥 Download breaking-free-complete.ps1](assets/downloads/breaking-free-complete.ps1){: .md-button }
     
     **What it automates:**
     - ✅ Phase 4: Edition locking & license purging

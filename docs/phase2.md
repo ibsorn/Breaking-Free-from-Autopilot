@@ -175,7 +175,7 @@ If you downloaded it (Option B):
 - Continue to Phase 3
 
 !!! note "Why This Matters"
-    Whether you use Home or Pro, the key is a clean installation done offline. The `ei.cfg` technique simply saves Home users from the risk of Windows auto-upgrading to Pro during installation. All subsequent phases (4–7) work regardless of which edition you choose.
+    Whether you use Home or Pro, the key is a clean installation done offline. The `ei.cfg` technique simply saves Home users from the risk of Windows auto-upgrading to Pro during installation. All subsequent phases (4–9) work regardless of which edition you choose.
 
 This is the key that prevents Autopilot from re-enrolling your device automatically.
 

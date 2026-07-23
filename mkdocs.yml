@@ -36,6 +36,7 @@ theme:
     - content.tabs.link
     - navigation.instant
     - navigation.sections
+    - toc.integrate
     - content.code.copy
 
 plugins:

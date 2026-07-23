@@ -465,6 +465,55 @@ a[href*="breaking-free-complete"].md-button:hover {
 }
 
 /* --------------------------------------------------------------------------
+   INTEGRATED TABLE OF CONTENTS (toc.integrate)
+   The page's section headings are shown nested under the active page in the
+   LEFT sidebar, and expand in place when you open a phase — instead of a
+   separate right-hand column.
+   -------------------------------------------------------------------------- */
+.md-sidebar--primary [data-md-component="toc"] {
+  margin: 0.35rem 0 0.65rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--bf-primary-700);
+  animation: bf-toc-reveal 0.28s ease both;
+}
+
+@keyframes bf-toc-reveal {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.md-sidebar--primary [data-md-component="toc"] .md-nav__list {
+  margin: 0;
+}
+
+.md-sidebar--primary [data-md-component="toc"] .md-nav__link {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--bf-primary-400);
+  padding: 0.22rem 0.5rem;
+  margin: 0.05rem -0.5rem;
+}
+
+.md-sidebar--primary [data-md-component="toc"] .md-nav__link:hover {
+  color: var(--bf-accent-cyan);
+  background: var(--bf-accent-cyan-hover);
+}
+
+/* Currently-read section (scrollspy) gets a clear cyan accent */
+.md-sidebar--primary [data-md-component="toc"] .md-nav__link--active {
+  color: var(--bf-accent-cyan);
+  font-weight: 600;
+  background: var(--bf-accent-cyan-active);
+}
+
+/* Deeper heading levels (h3+) indent softly with their own guide line */
+.md-sidebar--primary [data-md-component="toc"] .md-nav .md-nav {
+  margin-left: 0.15rem;
+  padding-left: 0.7rem;
+  border-left: 1px solid var(--bf-primary-800);
+}
+
+/* --------------------------------------------------------------------------
    SEARCH & HEADER
    -------------------------------------------------------------------------- */
 .md-header {

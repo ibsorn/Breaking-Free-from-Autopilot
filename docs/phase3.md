@@ -1,15 +1,15 @@
 ---
-description: Phase 3 - Clean Windows 11 installation offline. Skip Microsoft account setup using BypassNRO command and disconnect from network to prevent Autopilot/Entra ID enrollment.
-keywords: Windows installation, offline installation, BypassNRO, clean install, skip device setup
+description: Phase 3 - Clean Windows 11 installation offline. Skip the Microsoft account / network requirement with the ms-cxh:localonly command (Windows 11 24H2+) or the legacy oobe\bypassnro, and stay disconnected to prevent Autopilot/Entra ID enrollment.
+keywords: Windows installation, offline installation, ms-cxh:localonly, BypassNRO, Windows 11 24H2, local account, clean install, skip device setup
 ---
 
-# Phase 3: Clean Installation and Network Bypass (BypassNRO)
+# Phase 3: Clean Installation and Offline Local Account
 
 ## Overview
 
 Now it's time to perform a **completely clean Windows 11 installation**. This erases all existing Windows, all corporate tracking, and all enrollment data. You'll install your chosen Windows edition (Home or Pro) while completely bypassing Microsoft account creation and online enrollment checks.
 
-The key technique is the **BypassNRO** command, which removes network requirements from Windows setup.
+The key technique is skipping the forced Microsoft-account/network step during setup. On current Windows 11 (**24H2 and newer**) this is done with the `start ms-cxh:localonly` command; on older builds the classic `oobe\bypassnro` command does the same thing.
 
 **Time required:** 20–30 minutes  
 **What you need:**
@@ -80,38 +80,54 @@ Windows will now begin installing. This takes 10–20 minutes.
 !!! success "Installation in Progress"
     Windows is being installed on a completely clean disk. No corporate data, no Autopilot records, no tracking software. Just vanilla Windows 11 (Home or Pro, depending on your choice).
 
-### Step 5: Bypass Network Requirements with BypassNRO
+### Step 5: Skip the Microsoft Account / Network Requirement
 
 When installation finishes, you'll see a setup screen:
 **"Is this the correct country or region?"** or similar.
 
+Press **Shift + F10** (or **Shift + Fn + F10** on some laptops) to open **Command Prompt**. Then use the method that matches your Windows 11 version.
+
+!!! warning "Windows 11 24H2 removed the old `bypassnro` command"
+    On **Windows 11 24H2 and newer** (build 26100+), Microsoft **deleted** the classic `oobe\bypassnro` script, so it no longer works on recent ISOs. Use **Method A** below. On older ISOs (23H2 and earlier), `oobe\bypassnro` still works (**Method B**).
+
+**Method A — `ms-cxh:localonly` (recommended, works on 24H2+):**
+
 <ol class="steps-list">
-  <li><strong>Press Shift + F10</strong> (or <strong>Shift + Fn + F10</strong> on some laptops) to open <strong>Command Prompt</strong></li>
-  <li>Type <strong>exactly:</strong> <code>oobe\bypassnro</code></li>
+  <li>In the Command Prompt, type <strong>exactly:</strong> <code>start ms-cxh:localonly</code></li>
   <li><strong>Press Enter</strong></li>
 </ol>
 
-!!! warning "Exact Syntax Required"
-    The command must be exactly `oobe\bypassnro` (backslash, not forward slash). If it doesn't work, you're not in the right place – BypassNRO only works during OOBE (Out of Box Experience).
+A local-account creation screen opens **immediately** – no restart needed. Continue with Step 6 (you'll go straight to creating the local user).
 
-The device will restart automatically.
+**Method B — `oobe\bypassnro` (older ISOs, 23H2 and earlier):**
+
+<ol class="steps-list">
+  <li>In the Command Prompt, type <strong>exactly:</strong> <code>oobe\bypassnro</code> (backslash, not forward slash)</li>
+  <li><strong>Press Enter</strong> – the device restarts automatically</li>
+  <li>After the restart, continue with Step 6 (you'll get an <strong>"I don't have internet"</strong> option on the network screen)</li>
+</ol>
+
+!!! tip "Method C — Registry fallback (if neither works)"
+    Some in-between builds have neither option. In that case, re-enable the bypass flag manually from the Command Prompt and reboot:
+    ```
+    reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE" /v BypassNRO /t REG_DWORD /d 1 /f
+    shutdown /r /t 0
+    ```
+    After the restart, the **"I don't have internet"** option returns on the network screen – continue with Step 6.
 
 ### Step 6: Complete Setup with No Account
 
-After restart, Windows will show setup screens again:
+**If you used Method A (`start ms-cxh:localonly`):** a local-account screen ("Who's going to use this device?") opens right away – go straight to creating the local user below. There is no restart and no "Continue with limited setup" button.
+
+**If you used Method B or C (`bypassnro` / registry):** after the automatic restart, Windows shows the setup screens again. Select country and keyboard, and when you reach **"Let's connect you to a network"**, click **"I don't have internet"** at the bottom, then **Continue with limited setup**.
+
+!!! tip "If the offline option doesn't appear (Method B/C)"
+    The "I don't have internet" / "Continue with limited setup" option should be there. If it isn't, the bypass didn't run – reopen Command Prompt with Shift+F10 and use `start ms-cxh:localonly` (Method A) instead.
+
+Then, for **all methods**:
 
 <ol class="steps-list">
-  <li><strong>Select country and keyboard layout</strong> again</li>
-  <li><strong>When you reach the "Let's connect you to a network" screen,</strong> look for <strong>"I have no internet"</strong> at the bottom</li>
-  <li><strong>Click it</strong></li>
-</ol>
-
-!!! tip "If BypassNRO Worked"
-    The "I have no internet" option will appear. If it doesn't, BypassNRO might not have run successfully – restart and try command prompt again in the OOBE phase.
-
-<ol class="steps-list" start="4">
-  <li>Click <strong>Continue with limited setup</strong></li>
-  <li>Create a <strong>local user account</strong> (give it any name you like, e.g., <code>Admin</code> or <code>LocalUser</code>)</li>
+  <li>Create a <strong>local user account</strong> (give it any name you like, e.g., <code>Admin</code> or <code>LocalUser</code>) and set a password if you want</li>
   <li><strong>Press Next</strong> and proceed through any remaining setup screens</li>
   <li><strong>Skip Microsoft account sign-in</strong> – you'll add your personal account later in Phase 9</li>
   <li>Configure privacy settings (you can turn everything off if you want)</li>
@@ -128,6 +144,7 @@ After restart, Windows will show setup screens again:
 | Problem | Solution |
 |---------|----------|
 | "Command Prompt not found" when pressing Shift+F10 | You're not in OOBE (setup phase). Only Shift+F10 works during setup, not in the main Windows environment. |
-| BypassNRO command doesn't work | Make sure you typed it exactly: `oobe\bypassnro` (with backslash). Case doesn't matter, but the spelling must be exact. |
+| `oobe\bypassnro` command doesn't work / "not recognized" | On Windows 11 24H2+ this command was **removed**. Use Method A instead: `start ms-cxh:localonly`. On older ISOs, type `oobe\bypassnro` exactly (backslash, not slash). |
+| `ms-cxh:localonly` does nothing | It only works during OOBE (setup). Make sure you're at the setup screens, not the desktop. On very old ISOs it may not exist – use `oobe\bypassnro` (Method B) instead. |
 | Device keeps trying to connect to WiFi | Go back to Step 1 and physically disable WiFi or unplug Ethernet. |
-| "I have no internet" option doesn't appear | BypassNRO didn't run successfully. Restart and try the Shift+F10 command again. |
+| "I don't have internet" option doesn't appear | The bypass didn't run. Reopen Command Prompt with Shift+F10 and try `start ms-cxh:localonly` (Method A). |
